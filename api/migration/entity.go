@@ -24,7 +24,7 @@ type Hire struct {
 	ID int `gorm:"PrimaryKey"`
 	FullName string
 	Email string `gorm:"unique"`
-	Job string
+	Position string
 	Password string
 	Jobs []Job `gorm:"foreignKey:HireID"`
 }

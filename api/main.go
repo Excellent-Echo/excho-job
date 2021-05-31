@@ -1,7 +1,18 @@
 package main
 
-import "excho-job/config"
+import (
+	"excho-job/routes"
+
+	"github.com/gin-gonic/gin"
+)
+
+
 
 func main() {
-	config.Connection()
+	r := gin.Default()
+
+	routes.JobSeekerRoute(r)
+	routes.HireRoute(r)
+	routes.JobsRoute(r)
+	r.Run(":5555")
 }
