@@ -1,9 +1,9 @@
-import Header from "./components/Header";
+import SignUp from "./pages/jobseeker/SignUp";
 
 function App() {
   return (
     <>
-      <Header />
+      <SignUp />
     </>
   );
 }
