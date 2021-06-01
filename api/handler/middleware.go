@@ -3,13 +3,12 @@ package handler
 import (
 	"excho-job/auth"
 	"excho-job/helper"
-	"excho-job/hire"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
 
-func Middleware(hireService hire.Service, authService auth.Service) gin.HandlerFunc {
+func Middleware(authService auth.Service) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		authHeader := c.GetHeader("Auth")
 
@@ -38,8 +37,8 @@ func Middleware(hireService hire.Service, authService auth.Service) gin.HandlerF
 			return
 		}
 
-		hireID := int(claim["ID"].(float64))
+		ID := int(claim["ID"].(float64))
 
-		c.Set("currentUser", hireID)
+		c.Set("currentUser", ID)
 	}
 }
