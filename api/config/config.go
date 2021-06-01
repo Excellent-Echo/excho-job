@@ -19,6 +19,9 @@ func Connection() *gorm.DB {
 	db.AutoMigrate(&migration.JobSeekerDetails{})
 	db.AutoMigrate(&migration.Hire{})
 	db.AutoMigrate(&migration.Job{})
+	db.AutoMigrate(&migration.Resume{})
+	db.AutoMigrate(&migration.JobProfile{})
+	db.AutoMigrate(&migration.JobSeekerProfile{})
 
 	return db
 }
