@@ -1285,35 +1285,35 @@ _Response (200)_
         "email" : "hrdaziz@mail.com",
         "pekerjaan" : "HRD PT Google Indonesia"
         "jobs" : {
-        		"id" : 1,
-          		"company_name" : "PT Google Indonesia",
-          		"address" : "jakarta",
-          		"industry" : "Technology",
-          		"job_title" : "Golang Developer",
-          		"salary" : 10000000,
-          		"type" : "Full Time",
-          		"job_description" : "Design, develop and build scalable back-end infrastructure levering modern cloud platforms and technologies using Node.JS",
-          		"requirements" : "Strong proficiency with Javascript and/or Typescript",
-          		"skills" : "Golang",
-          		"location" : "Jakarta",
-          		"category" : "IT and Software",
-          		"hire_id" : 3
+        	"id" : 1,
+          	"company_name" : "PT Google Indonesia",
+          	"address" : "jakarta",
+          	"industry" : "Technology",
+          	"job_title" : "Golang Developer",
+          	"salary" : 10000000,
+          	"type" : "Full Time",
+          	"job_description" : "Design, develop and build scalable back-end infrastructure levering modern cloud platforms and technologies using Node.JS",
+          	"requirements" : "Strong proficiency with Javascript and/or Typescript",
+          	"skills" : "Golang",
+          	"location" : "Jakarta",
+          	"category" : "IT and Software",
+          	"hire_id" : 3
         	},
     		{
-    			"id" : 2,
-          		"company_name" : "PT Google Indonesia",
-          		"address" : "jakarta",
-          		"industry" : "Technology",
-          		"job_title" : "Frontend Developer",
-          		"salary" : 20000000,
-          		"type" : "Full Time",
-         		"job_description" : "Design, develop and build scalable front-end 		infrastructure with react js",
-          		"requirements" : "Strong proficiency with Javascript",
-          		"skills" : "react",
-          		"location" : "Jakarta",
-          		"category" : "IT and Software",
-    			"hire_id" : 3
-			}
+    		"id" : 2,
+          	"company_name" : "PT Google Indonesia",
+          	"address" : "jakarta",
+          	"industry" : "Technology",
+          	"job_title" : "Frontend Developer",
+          	"salary" : 20000000,
+          	"type" : "Full Time",
+         	"job_description" : "Design, develop and build scalable front-end infrastructure with react js",
+          	"requirements" : "Strong proficiency with Javascript",
+          	"skills" : "react",
+          	"location" : "Jakarta",
+          	"category" : "IT and Software",
+    		"hire_id" : 3
+		}
       }
 }
 ```
@@ -1431,7 +1431,6 @@ _Response (500 - Internal Server Error)_
 }
 ```
 ---
----
 ## RESTful Endpoints Jobs
 ### GET /jobs
 
@@ -1542,16 +1541,16 @@ _Response (201)_
       {
         "id" : <given id by system>,
         "company_name" : "<posted company name>",
- 		"address" : "<posted address>",
- 		"industry" : "<posted industry>",
- 		"job_title" : "<posted job title>",
- 		"salary" : <posted salary>,
- 		"type" : "<posted type>",
- 		"job_description" : "<posted job descrition>",
- 		"requirements : "<posted requirements>",
- 		"skills" : "<posted skills>",
- 		"location" : "<posted location>",
- 		"category" : "<posted category>"
+	"address" : "<posted address>",
+ 	"industry" : "<posted industry>",
+ 	"job_title" : "<posted job title>",
+ 	"salary" : <posted salary>,
+ 	"type" : "<posted type>",
+ 	"job_description" : "<posted job descrition>",
+ 	"requirements : "<posted requirements>",
+ 	"skills" : "<posted skills>",
+ 	"location" : "<posted location>",
+ 	"category" : "<posted category>"
       }
 }
 ```
@@ -1585,7 +1584,6 @@ _Response (500 - Internal Server Error)_
       }
 }
 ```
----
 ---
 
 ### GET /jobs/:id
@@ -1647,7 +1645,6 @@ _Response (500 - Internal Server Error)_
 }
 ```
 ---
----
 
 ### PUT /jobs/edit/:id
 
@@ -1689,16 +1686,16 @@ _Response (200)_
       {
         "id" : 2,
         "company_name" : "Microsoft Inc",
-   		"address" : "surabaya",
-   		"industry" : "Technology",
-   		"job_title" : "Backend Developer",
-   		"salary" : 30000000,
-   		"type" : "Full Time",
-   		"job_description" : "Design, develop and build scalable back-end infrastructure",
-   		"requirements : "Strong proficiency with golang",
-   		"skills" : "golang",
-   		"location" : "surabaya",
-   		"category" : "IT and Software"
+   	"address" : "surabaya",
+   	"industry" : "Technology",
+   	"job_title" : "Backend Developer",
+   	"salary" : 30000000,
+   	"type" : "Full Time",
+   	"job_description" : "Design, develop and build scalable back-end infrastructure",
+   	"requirements : "Strong proficiency with golang",
+   	"skills" : "golang",
+   	"location" : "surabaya",
+   	"category" : "IT and Software"
       }
 }
 ```
