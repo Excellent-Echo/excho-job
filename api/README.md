@@ -1046,3 +1046,718 @@ _Response (500 - Internal Server Error)_
 }
 ```
 ---
+## RESTful Endpoints Hire
+### GET /users/hire
+
+> Get All users hire
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success get all users hire",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" : [
+      {
+          "id" : 1,
+          "full_name" : "HRD Muhammad Fauzul Hanif",
+          "email" : "hrdhanif@mail.com"
+          "pekerjaan" : "HRD Amazon Inc"
+      }, {
+          "id" : 2,
+          "full_name" : "HRD Helmi Yusuf Efendi",
+          "email" : "hrdhelmi@mail.com",
+          "pekerjaan" : "HRD Microsoft Inc"
+      }
+      , {
+          "id" : 3,
+          "full_name" : "HRD Muhamad Aziz",
+          "email" : "hrdaziz@mail.com",
+          "pekerjaan" : "HRD PT Google Indonesia"
+      }
+  ]
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
+
+### POST /users/hire/register
+
+> Create new user hire
+
+_Request Header_
+```
+not needed
+```
+
+_Request Body_
+```json
+{
+  "full_name" : "<full name to get insert into>",
+  "email" : "<email to get insert into>",
+  "pekerjaan" : "<pekerjaan to get insert into>",
+  "password" : "<password to get insert into>"
+}
+```
+
+_Response (201)_
+```json
+{
+  "meta" : {
+      "message" : "success create new user hire",
+      "code" : 201,
+      "status" : "success"
+  }, 
+  "data" : 
+      {
+        "id" : <given id by system>,
+        "full_name" : "<posted full name>",
+        "email" : "<posted email>",
+        "pekerjaan" : "<posted pekerjaan>"
+      }
+}
+```
+
+_Response (400 - Bad Request)_
+```json
+{
+  "meta" : {
+      "message" : "input data required",
+      "code" : 400,
+      "status" : "bad request"
+  }, 
+  "data" : 
+      {
+        "errors" : []
+      }
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal Server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : 
+      {
+        "error" : ""
+      }
+}
+```
+---
+
+### POST /users/hire/login
+
+> Compare data login on database with data inputed
+
+_Request Header_
+```
+not needed
+```
+
+_Request Body_
+```json
+{
+  "email": "<email to get compare>",
+  "password": "<password to get compare>"
+}
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success login user hire",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" : 
+      {
+        "token" : "<your access token>"
+      }
+}
+```
+
+_Response (400 - Bad Request)_
+```json
+{
+  "meta" : {
+      "message" : "input data required",
+      "code" : 400,
+      "status" : "bad request"
+  }, 
+  "data" : 
+      {
+        "errors" : []
+      }
+}
+```
+
+_Response (401 - Unauthorized)_
+```json
+{
+    "meta" : {
+      "message" : "input data error",
+      "code" : 401,
+      "status" : "error"
+  }, 
+  "data" : 
+      {
+        "error" : ""
+      }
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal Server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : 
+      {
+        "error" : ""
+      }
+}
+```
+---
+
+### GET /users/hire/:id
+
+> Get user job seeker by  ID
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success get user hire by ID",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" :
+      {
+        "id" : 3,
+        "full_name" : "HRD Muhamad Aziz",
+        "email" : "hrdaziz@mail.com",
+        "pekerjaan" : "HRD PT Google Indonesia"
+        "jobs" : {
+        		"id" : 1,
+          		"company_name" : "PT Google Indonesia",
+          		"address" : "jakarta",
+          		"industry" : "Technology",
+          		"job_title" : "Golang Developer",
+          		"salary" : 10000000,
+          		"type" : "Full Time",
+          		"job_description" : "Design, develop and build scalable back-end infrastructure levering modern cloud platforms and technologies using Node.JS",
+          		"requirements" : "Strong proficiency with Javascript and/or Typescript",
+          		"skills" : "Golang",
+          		"location" : "Jakarta",
+          		"category" : "IT and Software",
+          		"hire_id" : 3
+        	},
+    		{
+    			"id" : 2,
+          		"company_name" : "PT Google Indonesia",
+          		"address" : "jakarta",
+          		"industry" : "Technology",
+          		"job_title" : "Frontend Developer",
+          		"salary" : 20000000,
+          		"type" : "Full Time",
+         		"job_description" : "Design, develop and build scalable front-end 		infrastructure with react js",
+          		"requirements" : "Strong proficiency with Javascript",
+          		"skills" : "react",
+          		"location" : "Jakarta",
+          		"category" : "IT and Software",
+    			"hire_id" : 3
+			}
+      }
+}
+```
+
+
+
+_Response (500 - Internal Server Error)_
+
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
+
+### PUT /users/hire/:id
+
+> Update user hire by ID
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```json
+{
+    "full_name" : "HRD ironman",
+    "email" : "hrdironman@mail.com"
+    "pekerjaan" : "HRD Stark Inc"
+}
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success update user hire by ID",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" :
+      {
+        "id" : 3,
+        "full_name" : "HRD ironman",
+    	"email" : "hrdironman@mail.com"
+    	"pekerjaan" : "HRD Stark Inc"
+      }
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
+
+### DELETE /users/hire/:id
+
+> Delete user hire by ID
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success delete user hire by ID",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" : "",
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
+---
+## RESTful Endpoints Jobs
+### GET /jobs
+
+> Get All jobs
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success get all jobs",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" : [
+      {
+          "id" : 1,
+          "company_name" : "PT Google Indonesia",
+          "address" : "jakarta",
+          "industry" : "Technology",
+          "job_title" : "Golang Developer",
+          "salary" : 10000000,
+          "type" : "Full Time",
+          "job_description" : "Design, develop and build scalable back-end infrastructure levering modern cloud platforms and technologies using Node.JS",
+          "requirements : "Strong proficiency with Javascript and/or Typescript",
+          "skills" : "Golang",
+          "location" : "Jakarta",
+          "category" : "IT and Software"
+      }, {
+           "id" : 2,
+          "company_name" : "PT Google Indonesia",
+          "address" : "jakarta",
+          "industry" : "Technology",
+          "job_title" : "Frontend Developer",
+          "salary" : 20000000,
+          "type" : "Full Time",
+          "job_description" : "Design, develop and build scalable front-end infrastructure with react js",
+          "requirements : "Strong proficiency with Javascript",
+          "skills" : "react",
+          "location" : "Jakarta",
+          "category" : "IT and Software"
+      }
+  ]
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
+
+### POST /jobs/add
+
+> Create new job
+
+_Request Header_
+```
+not needed
+```
+
+_Request Body_
+```json
+{
+ "company_name" : "<company name to get insert into>",
+ "address" : "<address name to get insert into>",
+ "industry" : "<industry name to get insert into>",
+ "job_title" : "<job title to get insert into>",
+ "salary" : <salary to get insert into>,
+ "type" : "<type to get insert into>",
+ "job_description" : "<job description to get insert into>",
+ "requirements : "<requirements to get insert into>",
+ "skills" : "<skills to get insert into>",
+ "location" : "<location to get insert into>",
+ "category" : "<category to get insert into>"
+}
+```
+
+_Response (201)_
+```json
+{
+  "meta" : {
+      "message" : "success create new job",
+      "code" : 201,
+      "status" : "success"
+  }, 
+  "data" : 
+      {
+        "id" : <given id by system>,
+        "company_name" : "<posted company name>",
+ 		"address" : "<posted address>",
+ 		"industry" : "<posted industry>",
+ 		"job_title" : "<posted job title>",
+ 		"salary" : <posted salary>,
+ 		"type" : "<posted type>",
+ 		"job_description" : "<posted job descrition>",
+ 		"requirements : "<posted requirements>",
+ 		"skills" : "<posted skills>",
+ 		"location" : "<posted location>",
+ 		"category" : "<posted category>"
+      }
+}
+```
+
+_Response (400 - Bad Request)_
+```json
+{
+  "meta" : {
+      "message" : "input data required",
+      "code" : 400,
+      "status" : "bad request"
+  }, 
+  "data" : 
+      {
+        "errors" : []
+      }
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal Server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : 
+      {
+        "error" : ""
+      }
+}
+```
+---
+---
+
+### GET /jobs/:id
+### GET /jobs/:job-location
+### GET /jobs/:job-type
+### GET /jobs/:job-category
+
+> Get job by ID or Location or Type or Category
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success get job by ID",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" :
+      {
+        "id" : 2,
+        "company_name" : "PT Google Indonesia",
+        "address" : "jakarta",
+        "industry" : "Technology",
+        "job_title" : "Frontend Developer",
+        "salary" : 20000000,
+        "type" : "Full Time",
+        "job_description" : "Design, develop and build scalable front-end infrastructure with react js",
+        "requirements : "Strong proficiency with Javascript",
+        "skills" : "react",
+        "location" : "Jakarta",
+        "category" : "IT and Software"
+      }
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
+---
+
+### PUT /jobs/edit/:id
+
+> Update jobs by ID
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```json
+{
+   "company_name" : "Microsoft Inc",
+   "address" : "surabaya",
+   "industry" : "Technology",
+   "job_title" : "Backend Developer",
+   "salary" : 30000000,
+   "type" : "Full Time",
+   "job_description" : "Design, develop and build scalable back-end infrastructure",
+   "requirements : "Strong proficiency with golang",
+   "skills" : "golang",
+   "location" : "surabaya",
+   "category" : "IT and Software"
+}
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success update jobs by ID",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" :
+      {
+        "id" : 2,
+        "company_name" : "Microsoft Inc",
+   		"address" : "surabaya",
+   		"industry" : "Technology",
+   		"job_title" : "Backend Developer",
+   		"salary" : 30000000,
+   		"type" : "Full Time",
+   		"job_description" : "Design, develop and build scalable back-end infrastructure",
+   		"requirements : "Strong proficiency with golang",
+   		"skills" : "golang",
+   		"location" : "surabaya",
+   		"category" : "IT and Software"
+      }
+}
+```
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
+
+### DELETE /jobs/delete/:id
+
+> Delete job  by ID
+
+_Request Header_
+```json
+{
+   "Authorization": "<your Authorization>"
+}
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200)_
+```json
+{
+  "meta" : {
+      "message" : "success delete job by ID",
+      "code" : 200,
+      "status" : "success"
+  }, 
+  "data" : "",
+}
+```
+
+
+_Response (500 - Internal Server Error)_
+```json
+{
+  "meta" : {
+      "message" : "Internal server error",
+      "code" : 500,
+      "status" : "error"
+  }, 
+  "data" : {
+      "error" : ""
+  }
+}
+```
+---
