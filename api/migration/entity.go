@@ -1,11 +1,13 @@
 package migration
 
 type JobSeeker struct {
-	ID              int `gorm:"PrimaryKey"`
-	FullName        string
-	Email           string `gorm:"unique"`
-	Password        string
-	JobSeekerDetail JobSeekerDetails `gorm:"foreignKey:JobSeekerID"`
+	ID               int `gorm:"PrimaryKey"`
+	FullName         string
+	Email            string `gorm:"unique"`
+	Password         string
+	JobSeekerDetail  JobSeekerDetails `gorm:"foreignKey:JobSeekerID"`
+	JobSeekerResume  Resume           `gorm:"foreignKey:JobSeekerID"`
+	JobSeekerProfile JobSeekerProfile `gorm:"foreignKey:JobSeekerID"`
 }
 
 type JobSeekerDetails struct {
@@ -16,7 +18,7 @@ type JobSeekerDetails struct {
 	Experience  string
 	Education   string
 	Skills      string
-	Resume      string
+	// Resume string
 	JobSeekerID int
 }
 
@@ -41,4 +43,23 @@ type Job struct {
 	Requirements   string
 	Skills         string
 	HireID         int
+	JobProfile     JobProfile `gorm:"foreignKey:JobID"`
+}
+
+type Resume struct {
+	ID          int `gorm:"PrimaryKey"`
+	Resume      string
+	JobSeekerID int
+}
+
+type JobSeekerProfile struct {
+	ID          int `gorm:"PrimaryKey"`
+	Profile     string
+	JobSeekerID int
+}
+
+type JobProfile struct {
+	ID      int `gorm:"PrimaryKey"`
+	Profile string
+	JobID   int
 }

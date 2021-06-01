@@ -2,11 +2,12 @@ package jobs
 
 import (
 	"excho-job/entity"
+	"strconv"
 )
 
 type Service interface {
 	GetAllJobs() ([]JobsFormat, error)
-	SaveNewJob(job entity.JobInput) (JobsFormat, error)
+	SaveNewJob(job entity.JobInput, hireID string) (JobsFormat, error)
 }
 
 type service struct {
@@ -33,7 +34,9 @@ func (s *service) GetAllJobs() ([]JobsFormat, error) {
 	return formatJobs, nil
 }
 
-func (s *service) SaveNewJob(job entity.JobInput) (JobsFormat, error) {
+func (s *service) SaveNewJob(job entity.JobInput, hireID string) (JobsFormat, error) {
+
+	IDHire, _ := strconv.Atoi(hireID)
 
 	var newJob = entity.Job{
 		CompanyName:    job.CompanyName,
@@ -45,11 +48,12 @@ func (s *service) SaveNewJob(job entity.JobInput) (JobsFormat, error) {
 		JobDescription: job.JobDescription,
 		Requirements:   job.Requirements,
 		Skills:         job.Skills,
+		HireID:         IDHire,
 	}
 
-	createJobSeeker, err := s.repository.Create(newJob)
+	createJob, err := s.repository.Create(newJob)
 
-	formatJob := FormatJob(createJobSeeker)
+	formatJob := FormatJob(createJob)
 	if err != nil {
 		return formatJob, err
 	}
