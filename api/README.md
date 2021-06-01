@@ -62,11 +62,11 @@ Excho job is a web job portal that provides job vacancies for job seekers equipp
 
 - `POST /users/hire/login`
 
-- `GET /users/hire/:hire-id`
+- `GET /users/hire/:id`
 
-- `PUT /users/hire/:hire-id`
+- `PUT /users/hire/:id`
 
-- `DELETE /users/hire/:hire-id`
+- `DELETE /users/hire/:id`
 
   
 
