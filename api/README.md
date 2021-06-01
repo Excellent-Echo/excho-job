@@ -1,7 +1,7 @@
 # API EXCHO JOB
 
 ```
-https://excho-job.herokuapp.com/
+https://<add-link>.herokuapp.com/
 ```
 
 Excho job is a web job portal that provides job vacancies for job seekers equipped with interview questions in terms of applying for a job.
