@@ -18,6 +18,10 @@ var (
 )
 
 func JobSeekerRoute(r *gin.Engine) {
+	r.GET("/users/job-seeker", handler.Middleware(authService), jobSeekerHandler.ShowAllJobSeekerHandler)
+	r.GET("/users/job-seeker/:id", handler.Middleware(authService), jobSeekerHandler.ShowJobSeekerByIDHandler)
 	r.POST("/users/job-seeker/register", jobSeekerHandler.CreateJobSeekerHandler)
 	r.POST("/users/job-seeker/login", jobSeekerHandler.LoginJobSeekerHandler)
+	r.PUT("/users/job-seeker/:id", handler.Middleware(authService), jobSeekerHandler.UpdateJobSeekerByIDHandler)
+	r.DELETE("/users/job-seeker/:id", handler.Middleware(authService), jobSeekerHandler.DeleteJobSeekerByIDHandler)
 }

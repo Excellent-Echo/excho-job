@@ -10,7 +10,6 @@ type JobSeekerDetailsFormat struct{
 	Experience string `json:"experience"`
 	Education string `json:"education"`
 	Skills string `json:"skills"`
-	Resume string `json:"resume"`
 }
 
 func FormatJobSeekerDetails(jobSeekerDetails entity.JobSeekerDetails) JobSeekerDetailsFormat{

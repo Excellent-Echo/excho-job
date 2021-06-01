@@ -15,5 +15,5 @@ var (
 
 func JobsRoute(r *gin.Engine) {
 	r.GET("/jobs", jobsHandler.ShowAllJobsHandler)
-	r.POST("/jobs", handler.Middleware(hireService, authService), jobsHandler.CreateJobHandler)
+	// r.POST("/jobs", handler.Middleware(authService), jobsHandler.CreateJobHandler)
 }
