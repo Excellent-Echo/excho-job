@@ -4,6 +4,7 @@ import (
 	"excho-job/entity"
 	"excho-job/helper"
 	"excho-job/jobs"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,12 +26,23 @@ func(h *jobsHandler) ShowAllJobsHandler(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("success get all jobs datar", 200, "status ok", jobs)
+	response := helper.APIResponse("success get all jobs data", 200, "status ok", jobs)
 
 	c.JSON(200, response)
 }
 
 func(h *jobsHandler) CreateJobHandler(c *gin.Context) {
+	hireData := int(c.MustGet("currentUser").(int))
+
+	if hireData == 0 {
+		responseErr := helper.APIResponse("Unauthorize", 401, "error", gin.H{"error": "user not authorize / not login"})
+
+		c.JSON(401, responseErr)
+		return
+	}
+
+	hireID := strconv.Itoa(hireData)
+
 	var inputJob entity.JobInput
 
 	if err := c.ShouldBindJSON(&inputJob); err != nil{
@@ -40,7 +52,8 @@ func(h *jobsHandler) CreateJobHandler(c *gin.Context) {
 		return
 	}
 
-	newJob, err := h.jobsService.SaveNewJob(inputJob)
+	newJob, err := h.jobsService.SaveNewJob(inputJob, hireID)
+
 	if err != nil {
 		responseErr := helper.APIResponse("internal server error", 500, "internal server error", err.Error())
 		c.JSON(500, responseErr)
