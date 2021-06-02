@@ -9,8 +9,8 @@ import (
 
 var (
 	hireRepository = hire.NewRepository(DB)
-	hireService = hire.NewService(hireRepository)
-	hireHandler = handler.NewHireHandler(hireService, authService)
+	hireService    = hire.NewService(hireRepository)
+	hireHandler    = handler.NewHireHandler(hireService, authService)
 )
 
 func HireRoute(r *gin.Engine) {

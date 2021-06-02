@@ -5,20 +5,20 @@ import (
 	"strconv"
 )
 
-type Service interface{
+type Service interface {
 	GetAllJobs() ([]JobsFormat, error)
 	SaveNewJob(job entity.JobInput, hireID string) (JobsFormat, error)
 }
 
-type service struct{
+type service struct {
 	repository Repository
 }
 
-func NewService(repo Repository) *service{
+func NewService(repo Repository) *service {
 	return &service{repo}
 }
 
-func(s *service) GetAllJobs()([]JobsFormat, error){
+func (s *service) GetAllJobs() ([]JobsFormat, error) {
 	jobs, err := s.repository.FindAll()
 
 	var formatJobs []JobsFormat
@@ -34,21 +34,21 @@ func(s *service) GetAllJobs()([]JobsFormat, error){
 	return formatJobs, nil
 }
 
-func(s *service) SaveNewJob(job entity.JobInput, hireID string) (JobsFormat, error) {
+func (s *service) SaveNewJob(job entity.JobInput, hireID string) (JobsFormat, error) {
 
 	IDHire, _ := strconv.Atoi(hireID)
 
 	var newJob = entity.Job{
-		CompanyName: job.CompanyName,
-		Address: job.Address,
-		Industry: job.Industry,
-		JobTittle: job.JobTittle,
-		Salary: job.Salary,
-		Type: job.Type,
+		CompanyName:    job.CompanyName,
+		Address:        job.Address,
+		Industry:       job.Industry,
+		JobTittle:      job.JobTittle,
+		Salary:         job.Salary,
+		Type:           job.Type,
 		JobDescription: job.JobDescription,
-		Requirements: job.Requirements,
-		Skills: job.Skills,
-		HireID: IDHire,
+		Requirements:   job.Requirements,
+		Skills:         job.Skills,
+		HireID:         IDHire,
 	}
 
 	createJob, err := s.repository.Create(newJob)

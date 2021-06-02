@@ -9,15 +9,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type jobsHandler struct{
+type jobsHandler struct {
 	jobsService jobs.Service
 }
 
-func NewJobsHandler(service jobs.Service) *jobsHandler{
+func NewJobsHandler(service jobs.Service) *jobsHandler {
 	return &jobsHandler{service}
 }
 
-func(h *jobsHandler) ShowAllJobsHandler(c *gin.Context) {
+func (h *jobsHandler) ShowAllJobsHandler(c *gin.Context) {
 	jobs, err := h.jobsService.GetAllJobs()
 
 	if err != nil {
@@ -31,7 +31,7 @@ func(h *jobsHandler) ShowAllJobsHandler(c *gin.Context) {
 	c.JSON(200, response)
 }
 
-func(h *jobsHandler) CreateJobHandler(c *gin.Context) {
+func (h *jobsHandler) CreateJobHandler(c *gin.Context) {
 	hireData := int(c.MustGet("currentUser").(int))
 
 	if hireData == 0 {
@@ -45,9 +45,9 @@ func(h *jobsHandler) CreateJobHandler(c *gin.Context) {
 
 	var inputJob entity.JobInput
 
-	if err := c.ShouldBindJSON(&inputJob); err != nil{
+	if err := c.ShouldBindJSON(&inputJob); err != nil {
 		splitErr := helper.SplitErrorInformation(err)
-		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors":splitErr})
+		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitErr})
 		c.JSON(400, responseErr)
 		return
 	}

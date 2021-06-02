@@ -6,21 +6,21 @@ import (
 	"gorm.io/gorm"
 )
 
-type Repository interface{
+type Repository interface {
 	FindByUserID(ID string) (entity.JobProfile, error)
 	Create(profile entity.JobProfile) (entity.JobProfile, error)
 	UpdateByID(ID string, dataUpdate map[string]interface{}) (entity.JobProfile, error)
 }
 
-type repository struct{
+type repository struct {
 	db *gorm.DB
 }
 
-func NewRepository(db *gorm.DB) *repository{
+func NewRepository(db *gorm.DB) *repository {
 	return &repository{db}
 }
 
-func(r *repository) FindByUserID(ID string) (entity.JobProfile, error) {
+func (r *repository) FindByUserID(ID string) (entity.JobProfile, error) {
 	var jobProfile entity.JobProfile
 
 	if err := r.db.Where("job_id = ?", ID).Find(&jobProfile).Error; err != nil {
@@ -30,7 +30,7 @@ func(r *repository) FindByUserID(ID string) (entity.JobProfile, error) {
 	return jobProfile, nil
 }
 
-func(r *repository) Create(profile entity.JobProfile) (entity.JobProfile, error) {
+func (r *repository) Create(profile entity.JobProfile) (entity.JobProfile, error) {
 	if err := r.db.Create(&profile).Error; err != nil {
 		return profile, err
 	}

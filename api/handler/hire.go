@@ -9,21 +9,21 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type hireHandler struct{
+type hireHandler struct {
 	hireService hire.Service
-	authService auth.Service	
+	authService auth.Service
 }
 
 func NewHireHandler(hireService hire.Service, authService auth.Service) *hireHandler {
 	return &hireHandler{hireService, authService}
 }
 
-func(h *hireHandler) CreateHireHandler(c *gin.Context) {
+func (h *hireHandler) CreateHireHandler(c *gin.Context) {
 	var inputHire entity.HireInput
 
-	if err := c.ShouldBindJSON(&inputHire); err != nil{
+	if err := c.ShouldBindJSON(&inputHire); err != nil {
 		splitErr := helper.SplitErrorInformation(err)
-		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors":splitErr})
+		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitErr})
 		c.JSON(400, responseErr)
 		return
 	}
@@ -38,22 +38,22 @@ func(h *hireHandler) CreateHireHandler(c *gin.Context) {
 	c.JSON(201, response)
 }
 
-func(h *hireHandler) LoginHireHandler(c *gin.Context){
+func (h *hireHandler) LoginHireHandler(c *gin.Context) {
 	var inputLogin entity.InputLoginHire
 
 	if err := c.ShouldBindJSON(&inputLogin); err != nil {
 		splitErr := helper.SplitErrorInformation(err)
-		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors":splitErr})
+		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitErr})
 
 		c.JSON(400, responseErr)
 		return
 	}
 
 	jobSeekerData, err := h.hireService.LoginJobSeeker(inputLogin)
-	
+
 	if err != nil {
 		responseErr := helper.APIResponse("input data error", 401, "bad request", gin.H{"errors": err.Error()})
-	
+
 		c.JSON(401, responseErr)
 		return
 	}
@@ -61,7 +61,7 @@ func(h *hireHandler) LoginHireHandler(c *gin.Context){
 	token, err := h.authService.GenerateToken(jobSeekerData.ID)
 
 	if err != nil {
-		responseErr := helper.APIResponse("input data error", 401, "bad request", gin.H{"error":err})
+		responseErr := helper.APIResponse("input data error", 401, "bad request", gin.H{"error": err})
 
 		c.JSON(401, responseErr)
 		return

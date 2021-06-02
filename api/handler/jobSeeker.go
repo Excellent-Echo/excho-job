@@ -9,12 +9,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type jobSeekerHandler struct{
+type jobSeekerHandler struct {
 	jobSeekerService jobSeeker.Service
-	authService auth.Service
+	authService      auth.Service
 }
 
-func NewJobSeekerHandler(service jobSeeker.Service, authService auth.Service) *jobSeekerHandler{
+func NewJobSeekerHandler(service jobSeeker.Service, authService auth.Service) *jobSeekerHandler {
 	return &jobSeekerHandler{service, authService}
 }
 
@@ -52,9 +52,9 @@ func (h *jobSeekerHandler) ShowJobSeekerByIDHandler(c *gin.Context) {
 func (h *jobSeekerHandler) CreateJobSeekerHandler(c *gin.Context) {
 	var inputJobSeeker entity.JobSeekerInput
 
-	if err := c.ShouldBindJSON(&inputJobSeeker); err != nil{
+	if err := c.ShouldBindJSON(&inputJobSeeker); err != nil {
 		splitErr := helper.SplitErrorInformation(err)
-		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors":splitErr})
+		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitErr})
 		c.JSON(400, responseErr)
 		return
 	}
@@ -75,14 +75,14 @@ func(h *jobSeekerHandler) LoginJobSeekerHandler(c *gin.Context){
 
 	if err := c.ShouldBindJSON(&inputLogin); err != nil {
 		splitErr := helper.SplitErrorInformation(err)
-		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors":splitErr})
+		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitErr})
 
 		c.JSON(400, responseErr)
 		return
 	}
 
 	jobSeekerData, err := h.jobSeekerService.LoginJobSeeker(inputLogin)
-	
+
 	if err != nil {
 		responseErr := helper.APIResponse("input data error", 401, "error", gin.H{"errors": err.Error()})
 	

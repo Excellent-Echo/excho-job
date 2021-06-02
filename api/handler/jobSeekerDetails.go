@@ -10,12 +10,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type jobsSeekerDetailsHandler struct{
+type jobsSeekerDetailsHandler struct {
 	jobsSeekerDetailsService jobseekerdetails.Service
-	authService auth.Service
+	authService              auth.Service
 }
 
-func NewJobSeekerDetailsHandler(service jobseekerdetails.Service, authService auth.Service) *jobsSeekerDetailsHandler{
+func NewJobSeekerDetailsHandler(service jobseekerdetails.Service, authService auth.Service) *jobsSeekerDetailsHandler {
 	return &jobsSeekerDetailsHandler{service, authService}
 }
 
@@ -61,7 +61,7 @@ func (h *jobsSeekerDetailsHandler) SaveNewDetailHandler(c *gin.Context) {
 
 	var inputJobSeekerDetail entity.JobSeekerDetailInput
 
-	if err := c.ShouldBindJSON(&inputJobSeekerDetail); err != nil{
+	if err := c.ShouldBindJSON(&inputJobSeekerDetail); err != nil {
 		splitError := helper.SplitErrorInformation(err)
 		responseError := helper.APIResponse("input data required", 400, "bad request", gin.H{"errors": splitError})
 

@@ -9,15 +9,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type jobProfileHandler struct{
+type jobProfileHandler struct {
 	service jobprofile.Service
 }
 
-func NewJobProfileHandler(service jobprofile.Service) *jobProfileHandler{
+func NewJobProfileHandler(service jobprofile.Service) *jobProfileHandler {
 	return &jobProfileHandler{service}
 }
 
-func (h *jobProfileHandler) GetJobProfileByJobIDHandler(c *gin.Context){
+func (h *jobProfileHandler) GetJobProfileByJobIDHandler(c *gin.Context) {
 	jobData := int(c.MustGet("currentUser").(int))
 
 	jobID := strconv.Itoa(jobData)

@@ -9,15 +9,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type resumeHandler struct{
+type resumeHandler struct {
 	service resume.Service
 }
 
-func NewResumeHandler(service resume.Service) *resumeHandler{
+func NewResumeHandler(service resume.Service) *resumeHandler {
 	return &resumeHandler{service}
 }
 
-func (h *resumeHandler) GetResemuByJobSeekerIDHandler(c *gin.Context){
+func (h *resumeHandler) GetResemuByJobSeekerIDHandler(c *gin.Context) {
 	userData := int(c.MustGet("currentUser").(int))
 
 	userID := strconv.Itoa(userData)

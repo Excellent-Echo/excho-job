@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-type Service interface{
+type Service interface {
 	GetJobProfileByJobID(ID string) (entity.JobProfile, error)
 	SaveNewJobProfile(pathFile string, ID int) (entity.JobProfile, error)
 	UpdateJobProfileByID(pathFile string, jobID string) (entity.JobProfile, error)
@@ -18,7 +18,7 @@ type service struct {
 	repository Repository
 }
 
-func NewService(repo Repository) *service{
+func NewService(repo Repository) *service {
 	return &service{repo}
 }
 
@@ -44,7 +44,7 @@ func (s *service) SaveNewJobProfile(pathFile string, id int) (entity.JobProfile,
 
 	newJobProfile := entity.JobProfile{
 		Profile: pathFile,
-		JobID: id,
+		JobID:   id,
 	}
 
 	jobProfile, err := s.repository.Create(newJobProfile)

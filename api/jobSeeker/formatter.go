@@ -16,9 +16,9 @@ type DeleteFormat struct {
 
 func FormatJobSeeker(JobSeeker entity.JobSeeker) JobSeekerFormat {
 	var formatJobSeeker = JobSeekerFormat{
-		ID: JobSeeker.ID,
+		ID:       JobSeeker.ID,
 		FullName: JobSeeker.FullName,
-		Email: JobSeeker.Email,
+		Email:    JobSeeker.Email,
 	}
 	return formatJobSeeker
 }
