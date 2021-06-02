@@ -68,7 +68,7 @@ func (h *resumeHandler) SaveNewResumeeHandler(c *gin.Context) {
 		return
 	}
 
-	pathResumeSave := "localhost/" + path
+	pathResumeSave := "https://excho-job.herokuapp.com/" + path
 
 	userProfile, err := h.service.SaveNewResume(pathResumeSave, userData)
 
@@ -110,7 +110,7 @@ func (h *resumeHandler) UpdateResumeByIDHandler(c *gin.Context) {
 		return
 	}
 
-	pathProfileSave := "localhost/" + path
+	pathProfileSave := "https://excho-job.herokuapp.com/" + path
 
 	userProfile, err := h.service.UpdateResumeByID(pathProfileSave, ID)
 

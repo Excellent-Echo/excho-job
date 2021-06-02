@@ -70,7 +70,7 @@ func (h *jobSeekerHandler) CreateJobSeekerHandler(c *gin.Context) {
 }
 
 // function for login job seeker and getting the token
-func(h *jobSeekerHandler) LoginJobSeekerHandler(c *gin.Context){
+func (h *jobSeekerHandler) LoginJobSeekerHandler(c *gin.Context) {
 	var inputLogin entity.InputLoginJobSeeker
 
 	if err := c.ShouldBindJSON(&inputLogin); err != nil {
@@ -85,16 +85,16 @@ func(h *jobSeekerHandler) LoginJobSeekerHandler(c *gin.Context){
 
 	if err != nil {
 		responseErr := helper.APIResponse("input data error", 401, "error", gin.H{"errors": err.Error()})
-	
+
 		c.JSON(401, responseErr)
 		return
 	}
-	
+
 	// generate token
 	token, err := h.authService.GenerateToken(jobSeekerData.ID)
 
 	if err != nil {
-		responseErr := helper.APIResponse("internal server error", 500, "error", gin.H{"error":err})
+		responseErr := helper.APIResponse("internal server error", 500, "error", gin.H{"error": err})
 
 		c.JSON(401, responseErr)
 		return

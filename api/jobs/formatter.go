@@ -13,6 +13,12 @@ type JobsFormat struct {
 	JobDescription string `json:"job_description"`
 	Requirements   string `json:"requirements"`
 	Skills         string `json:"skills"`
+	Location       string `json:"location"`
+	Category       string `json:"category"`
+}
+
+type DeleteFormat struct {
+	Message string `json:"message"`
 }
 
 func FormatJob(job entity.Job) JobsFormat {
@@ -27,6 +33,15 @@ func FormatJob(job entity.Job) JobsFormat {
 		JobDescription: job.JobDescription,
 		Requirements:   job.Requirements,
 		Skills:         job.Skills,
+		Location:       job.Location,
+		Category:       job.Category,
 	}
 	return formatJob
+}
+
+func FormatDeleteUser(msg string) DeleteFormat {
+	var deleteFormat = DeleteFormat{
+		Message: msg,
+	}
+	return deleteFormat
 }

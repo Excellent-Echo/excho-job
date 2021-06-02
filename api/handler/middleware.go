@@ -10,7 +10,7 @@ import (
 
 func Middleware(authService auth.Service) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		authHeader := c.GetHeader("Auth")
+		authHeader := c.GetHeader("Authorization")
 
 		if authHeader == "" || len(authHeader) == 0 {
 			responseErr := helper.APIResponse("Unauthorize", 401, "error", gin.H{"error": "unauthorize user"})

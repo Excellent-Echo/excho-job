@@ -14,6 +14,9 @@ var (
 )
 
 func HireRoute(r *gin.Engine) {
+	r.GET("/users/hire", handler.Middleware(authService), hireHandler.ShowAllHireHandler)
 	r.POST("/users/hire/register", hireHandler.CreateHireHandler)
 	r.POST("/users/hire/login", hireHandler.LoginHireHandler)
+	r.PUT("/users/hire/:id", handler.Middleware(authService), hireHandler.UpdateHireByIDHandler)
+	r.DELETE("/users/hire/:id", handler.Middleware(authService), hireHandler.DeleteHireByIDHandler)
 }
