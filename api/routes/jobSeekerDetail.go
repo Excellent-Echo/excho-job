@@ -9,8 +9,8 @@ import (
 
 var (
 	detailsRepository = jobseekerdetails.NewRepository(DB)
-	detailsService = jobseekerdetails.NewService(detailsRepository)
-	detailsHandler = handler.NewJobSeekerDetailsHandler(detailsService, authService)
+	detailsService    = jobseekerdetails.NewService(detailsRepository)
+	detailsHandler    = handler.NewJobSeekerDetailsHandler(detailsService, authService)
 )
 
 func JobSeekerDetailsRoute(r *gin.Engine) {

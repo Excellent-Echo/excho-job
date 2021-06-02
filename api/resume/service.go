@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-type Service interface{
+type Service interface {
 	GetResemuByJobSeekerID(ID string) (entity.Resume, error)
 	SaveNewResume(pathFile string, ID int) (entity.Resume, error)
 	UpdateResumeByID(pathFile string, userProfileID string) (entity.Resume, error)
@@ -18,7 +18,7 @@ type service struct {
 	repository Repository
 }
 
-func NewService(repo Repository) *service{
+func NewService(repo Repository) *service {
 	return &service{repo}
 }
 
@@ -43,7 +43,7 @@ func (s *service) SaveNewResume(pathFile string, id int) (entity.Resume, error) 
 	}
 
 	newResume := entity.Resume{
-		Resume: pathFile,
+		Resume:      pathFile,
 		JobSeekerID: id,
 	}
 

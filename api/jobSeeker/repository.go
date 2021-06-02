@@ -36,7 +36,7 @@ func (r *repository) FindAll() ([]entity.JobSeeker, error) {
 }
 
 // function for creating new job seeker user
-func(r *repository) Create(jobSeeker entity.JobSeeker) (entity.JobSeeker, error) {
+func (r *repository) Create(jobSeeker entity.JobSeeker) (entity.JobSeeker, error) {
 	if err := r.db.Create(&jobSeeker).Error; err != nil {
 		return jobSeeker, err
 	}
@@ -55,7 +55,7 @@ func (r *repository) FindByID(ID string) (entity.JobSeeker, error) {
 }
 
 // function for find job seeker by email, this function will be use for login
-func(r *repository) FindByEmail(email string) (entity.JobSeeker, error) {
+func (r *repository) FindByEmail(email string) (entity.JobSeeker, error) {
 	var jobSeeker entity.JobSeeker
 
 	if err := r.db.Where("email = ?", email).Find(&jobSeeker).Error; err != nil {

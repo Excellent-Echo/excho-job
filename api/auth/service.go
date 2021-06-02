@@ -6,16 +6,15 @@ import (
 	"github.com/dgrijalva/jwt-go"
 )
 
-type Service interface{
+type Service interface {
 	GenerateToken(ID int) (string, error)
 	ValidateToken(encodedToken string) (*jwt.Token, error)
 }
 
-type jwtService struct{
-
+type jwtService struct {
 }
 
-func NewService() *jwtService{
+func NewService() *jwtService {
 	return &jwtService{}
 }
 
@@ -23,7 +22,7 @@ var key = "password"
 
 func (s *jwtService) GenerateToken(ID int) (string, error) {
 	claim := jwt.MapClaims{
-		"ID" : ID,
+		"ID": ID,
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claim)

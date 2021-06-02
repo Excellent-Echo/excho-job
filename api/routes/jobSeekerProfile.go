@@ -9,8 +9,8 @@ import (
 
 var (
 	jobSeekerProfileRepository = jobseekerprofile.NewRepository(DB)
-	jobSeekerProfileService = jobseekerprofile.NewService(jobSeekerProfileRepository)
-	jobSeekerProfileHandler = handler.NewJobSeekerProfileHandler(jobSeekerProfileService)
+	jobSeekerProfileService    = jobseekerprofile.NewService(jobSeekerProfileRepository)
+	jobSeekerProfileHandler    = handler.NewJobSeekerProfileHandler(jobSeekerProfileService)
 )
 
 func JobSeekerProfileRoute(r *gin.Engine) {

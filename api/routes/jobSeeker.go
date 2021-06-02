@@ -10,11 +10,11 @@ import (
 )
 
 var (
-	DB = config.Connection()
+	DB                  = config.Connection()
 	jobSeekerRepository = jobSeeker.NewRepository(DB)
-	jobSeekerService = jobSeeker.NewService(jobSeekerRepository)
-	authService = auth.NewService()
-	jobSeekerHandler = handler.NewJobSeekerHandler(jobSeekerService, authService)
+	jobSeekerService    = jobSeeker.NewService(jobSeekerRepository)
+	authService         = auth.NewService()
+	jobSeekerHandler    = handler.NewJobSeekerHandler(jobSeekerService, authService)
 )
 
 func JobSeekerRoute(r *gin.Engine) {

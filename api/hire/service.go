@@ -7,12 +7,12 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-type Service interface{
+type Service interface {
 	SaveNewHire(hireInput entity.HireInput) (HireFormat, error)
 	LoginJobSeeker(input entity.InputLoginHire) (entity.Hire, error)
 }
 
-type service struct{
+type service struct {
 	repository Repository
 }
 
@@ -20,7 +20,7 @@ func NewService(repo Repository) *service {
 	return &service{repo}
 }
 
-func(s *service) SaveNewHire(hireInput entity.HireInput) (HireFormat, error) {
+func (s *service) SaveNewHire(hireInput entity.HireInput) (HireFormat, error) {
 	genPasswrod, err := bcrypt.GenerateFromPassword([]byte(hireInput.Password), bcrypt.MinCost)
 	if err != nil {
 		return HireFormat{}, err
@@ -28,7 +28,7 @@ func(s *service) SaveNewHire(hireInput entity.HireInput) (HireFormat, error) {
 
 	var newHire = entity.Hire{
 		FullName: hireInput.FullName,
-		Email: hireInput.Email,
+		Email:    hireInput.Email,
 		Position: hireInput.Position,
 		Password: string(genPasswrod),
 	}
@@ -36,7 +36,7 @@ func(s *service) SaveNewHire(hireInput entity.HireInput) (HireFormat, error) {
 	createHire, err := s.repository.Create(newHire)
 
 	formatHire := FormatHire(createHire)
-	
+
 	if err != nil {
 		return formatHire, err
 	}
@@ -49,7 +49,7 @@ func (s *service) LoginJobSeeker(input entity.InputLoginHire) (entity.Hire, erro
 	if err != nil {
 		return hire, err
 	}
-	
+
 	if hire.ID == 0 {
 		return hire, errors.New("user not found")
 	}

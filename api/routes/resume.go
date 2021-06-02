@@ -9,8 +9,8 @@ import (
 
 var (
 	resumeRepository = resume.NewRepository(DB)
-	resumeService = resume.NewService(resumeRepository)
-	resumeHandler = handler.NewResumeHandler(resumeService)
+	resumeService    = resume.NewService(resumeRepository)
+	resumeHandler    = handler.NewResumeHandler(resumeService)
 )
 
 func ResumeRoute(r *gin.Engine) {
