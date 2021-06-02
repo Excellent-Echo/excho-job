@@ -140,7 +140,7 @@ _Response (500 - Internal Server Error)_
 ```
 ---
 
-### POST /users/:job-seeker/register
+### POST /users/job-seeker/register
 
 > Create new user job seeker 
 
