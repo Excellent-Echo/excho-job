@@ -22,8 +22,3 @@ type UpdateJobSeekerInput struct{
 	FullName string `json:"full_name" binding:"required"`
 	Email string `json:"email" binding:"required"`
 }
-
-type UpdateJobSeekerInput struct{
-	FullName string `json:"full_name" binding:"required"`
-	Email string `json:"email" binding:"required"`
-}
