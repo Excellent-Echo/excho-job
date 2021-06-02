@@ -45,7 +45,7 @@ func SplitErrorInformation(err error) []string {
 
 func ValidateIDNumber(ID string) error {
 	if num, err := strconv.Atoi(ID); err != nil || num == 0 || math.Signbit(float64(num)) == true {
-		return errors.New("input must be a valid id user")
+		return errors.New("input must be a valid id")
 	}
 
 	return nil

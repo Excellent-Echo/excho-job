@@ -14,7 +14,7 @@ var (
 )
 
 func JobSeekerDetailsRoute(r *gin.Engine) {
-	r.GET("/users/job-seeker/details", handler.Middleware(authService), detailsHandler.ShowJobSeekerDetailsHandler)
-	r.POST("/users/job-seeker/details", handler.Middleware(authService), detailsHandler.SaveNewDetailHandler)
-	r.PUT("/users/job-seeker/details", handler.Middleware(authService), detailsHandler.UpdateDetailsByJobSeekerIDHandler)
+	r.GET("/job-seeker-details", handler.Middleware(authService), detailsHandler.ShowJobSeekerDetailsHandler)
+	r.POST("job-seeker-details", handler.Middleware(authService), detailsHandler.SaveNewDetailHandler)
+	r.PUT("job-seeker-details", handler.Middleware(authService), detailsHandler.UpdateDetailsByJobSeekerIDHandler)
 }

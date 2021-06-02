@@ -2,7 +2,6 @@ package jobSeeker
 
 import (
 	"excho-job/entity"
-	"fmt"
 
 	"gorm.io/gorm"
 )
@@ -75,8 +74,6 @@ func (r *repository) UpdateByID(id string, dataUpdate map[string]interface{}) (e
 	if err := r.db.Model(&jobSeeker).Where("id = ?", id).Updates(dataUpdate).Error; err != nil {
 		return jobSeeker, err
 	}
-
-	fmt.Println(jobSeeker)
 
 	return jobSeeker, nil
 }

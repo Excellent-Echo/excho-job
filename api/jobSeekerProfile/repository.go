@@ -41,11 +41,11 @@ func (r *repository) Create(jobSeekerProfile entity.JobSeekerProfile) (entity.Jo
 func (r *repository) UpdateByID(ID string, dataUpdate map[string]interface{}) (entity.JobSeekerProfile, error) {
 	var jobSeekerProfile entity.JobSeekerProfile
 
-	if err := r.db.Model(&jobSeekerProfile).Where("id = ?", ID).Updates(dataUpdate).Error; err != nil {
+	if err := r.db.Model(&jobSeekerProfile).Where("job_seeker_id = ?", ID).Updates(dataUpdate).Error; err != nil {
 		return jobSeekerProfile, err
 	}
 
-	if err := r.db.Where("id = ?", ID).Find(&jobSeekerProfile).Error; err != nil {
+	if err := r.db.Where("job_seeker_id = ?", ID).Find(&jobSeekerProfile).Error; err != nil {
 		return jobSeekerProfile, err
 	}
 

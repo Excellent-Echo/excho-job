@@ -42,6 +42,8 @@ type Job struct {
 	JobDescription string
 	Requirements   string
 	Skills         string
+	Location       string
+	Category       string
 	HireID         int
 	JobProfile     JobProfile `gorm:"foreignKey:JobID"`
 }
