@@ -1076,18 +1076,18 @@ _Response (200)_
           "id" : 1,
           "full_name" : "HRD Muhammad Fauzul Hanif",
           "email" : "hrdhanif@mail.com"
-          "pekerjaan" : "HRD Amazon Inc"
+          "position" : "HRD Amazon Inc"
       }, {
           "id" : 2,
           "full_name" : "HRD Helmi Yusuf Efendi",
           "email" : "hrdhelmi@mail.com",
-          "pekerjaan" : "HRD Microsoft Inc"
+          "position" : "HRD Microsoft Inc"
       }
       , {
           "id" : 3,
           "full_name" : "HRD Muhamad Aziz",
           "email" : "hrdaziz@mail.com",
-          "pekerjaan" : "HRD PT Google Indonesia"
+          "position" : "HRD PT Google Indonesia"
       }
   ]
 }
@@ -1122,7 +1122,7 @@ _Request Body_
 {
   "full_name" : "<full name to get insert into>",
   "email" : "<email to get insert into>",
-  "pekerjaan" : "<pekerjaan to get insert into>",
+  "position" : "<position to get insert into>",
   "password" : "<password to get insert into>"
 }
 ```
@@ -1140,7 +1140,7 @@ _Response (201)_
         "id" : <given id by system>,
         "full_name" : "<posted full name>",
         "email" : "<posted email>",
-        "pekerjaan" : "<posted pekerjaan>"
+        "position" : "<posted position>"
       }
 }
 ```
@@ -1283,7 +1283,7 @@ _Response (200)_
         "id" : 3,
         "full_name" : "HRD Muhamad Aziz",
         "email" : "hrdaziz@mail.com",
-        "pekerjaan" : "HRD PT Google Indonesia"
+        "position" : "HRD PT Google Indonesia"
         "jobs" : {
         	"id" : 1,
           	"company_name" : "PT Google Indonesia",
@@ -1352,7 +1352,7 @@ _Request Body_
 {
     "full_name" : "HRD ironman",
     "email" : "hrdironman@mail.com"
-    "pekerjaan" : "HRD Stark Inc"
+    "position" : "HRD Stark Inc"
 }
 ```
 
@@ -1369,7 +1369,7 @@ _Response (200)_
         "id" : 3,
         "full_name" : "HRD ironman",
     	"email" : "hrdironman@mail.com"
-    	"pekerjaan" : "HRD Stark Inc"
+    	"position" : "HRD Stark Inc"
       }
 }
 ```
@@ -1515,17 +1515,17 @@ not needed
 _Request Body_
 ```json
 {
- "company_name" : "<company name to get insert into>",
- "address" : "<address name to get insert into>",
- "industry" : "<industry name to get insert into>",
- "job_title" : "<job title to get insert into>",
- "salary" : <salary to get insert into>,
- "type" : "<type to get insert into>",
- "job_description" : "<job description to get insert into>",
- "requirements : "<requirements to get insert into>",
- "skills" : "<skills to get insert into>",
- "location" : "<location to get insert into>",
- "category" : "<category to get insert into>"
+"company_name" : "PT Sandal Jepit",
+    "address" : "Jalan ahmad yani",
+    "industry" : "Teknologi",
+    "job_tittle" : "Golang Developer",
+    "salary" : 1000000,
+    "type" : "full time",
+    "job_description" : "good communication",
+    "location" : "jakarta",
+    "requirements" : "good",
+    "skills" : "golang",
+    "category" : "IT and Software"
 }
 ```
 
