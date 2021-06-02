@@ -1,11 +1,17 @@
 package jobSeeker
 
-import "excho-job/entity"
+import (
+	"excho-job/entity"
+)
 
 type JobSeekerFormat struct {
-	ID       int    `json:"id"`
+	ID int `json:"id"`
 	FullName string `json:"full_name"`
-	Email    string `json:"email"`
+	Email string `json:"email"`
+}
+
+type DeleteFormat struct {
+	Message    string    `json:"message"`
 }
 
 func FormatJobSeeker(JobSeeker entity.JobSeeker) JobSeekerFormat {
@@ -15,4 +21,11 @@ func FormatJobSeeker(JobSeeker entity.JobSeeker) JobSeekerFormat {
 		Email:    JobSeeker.Email,
 	}
 	return formatJobSeeker
+}
+
+func FormatDeleteUser(msg string) DeleteFormat {
+	var deleteFormat = DeleteFormat{
+		Message:    msg,
+	}
+	return deleteFormat
 }

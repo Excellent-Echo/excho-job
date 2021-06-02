@@ -33,6 +33,20 @@ func NewJobSeekerDetailsHandler(service jobseekerdetails.Service, authService au
 // 	c.JSON(200, response)
 // }
 
+func (h *jobsSeekerDetailsHandler) ShowJobSeekerDetailsHandler(c *gin.Context) {
+	jobSeekerDetails, err := h.jobsSeekerDetailsService.GetAllJobSeekerDetails()
+
+	if err != nil {
+		responseErr := helper.APIResponse("internal server error", 500, "internal server error", err.Error())
+		c.JSON(500, responseErr)
+		return
+	}
+
+	response := helper.APIResponse("success get all job seeker details", 200, "status ok", jobSeekerDetails)
+
+	c.JSON(200, response)
+}
+
 func (h *jobsSeekerDetailsHandler) SaveNewDetailHandler(c *gin.Context) {
 	userData := int(c.MustGet("currentUser").(int))
 
@@ -68,7 +82,7 @@ func (h *jobsSeekerDetailsHandler) SaveNewDetailHandler(c *gin.Context) {
 	c.JSON(201, response)
 }
 
-func (h *jobsSeekerDetailsHandler) GetJobSeekerDetailByUserIDHandler(c *gin.Context) {
+func (h *jobsSeekerDetailsHandler) UpdateDetailsByJobSeekerIDHandler(c *gin.Context) {
 	userData := int(c.MustGet("currentUser").(int))
 
 	if userData == 0 {
@@ -80,15 +94,25 @@ func (h *jobsSeekerDetailsHandler) GetJobSeekerDetailByUserIDHandler(c *gin.Cont
 
 	userID := strconv.Itoa(userData)
 
-	jobSeekerDetail, err := h.jobsSeekerDetailsService.GetJobSeekerDetailByUserID(userID)
+	var updateUserInput entity.JobSeekerDetailInput
 
-	if err != nil {
-		responseError := helper.APIResponse("status unauthorize", 401, "error", gin.H{"error": err.Error()})
+	if err := c.ShouldBindJSON(&updateUserInput); err != nil {
+		splitErr := helper.SplitErrorInformation(err)
+		responseErr := helper.APIResponse("input data required", 400, "bad request", gin.H{"error": splitErr})
 
-		c.JSON(401, responseError)
+		c.JSON(400, responseErr)
 		return
 	}
 
-	response := helper.APIResponse("success get user detail by job seeker ID", 200, "success", jobSeekerDetail)
+	jobSeekerDetails, err := h.jobsSeekerDetailsService.UpdateDetailsByJobSeekerID(userID, updateUserInput)
+
+	if err != nil {
+		responseErr := helper.APIResponse("internal server error", 500, "error", gin.H{"error": err.Error()})
+
+		c.JSON(500, responseErr)
+		return
+	}
+
+	response := helper.APIResponse("success update job seeker details", 200, "success", jobSeekerDetails)
 	c.JSON(200, response)
 }
