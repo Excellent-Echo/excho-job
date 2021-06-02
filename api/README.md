@@ -1515,17 +1515,17 @@ not needed
 _Request Body_
 ```json
 {
- "company_name" : "<company name to get insert into>",
- "address" : "<address name to get insert into>",
- "industry" : "<industry name to get insert into>",
- "job_title" : "<job title to get insert into>",
- "salary" : <salary to get insert into>,
- "type" : "<type to get insert into>",
- "job_description" : "<job description to get insert into>",
- "requirements : "<requirements to get insert into>",
- "skills" : "<skills to get insert into>",
- "location" : "<location to get insert into>",
- "category" : "<category to get insert into>"
+ "company_name" : "PT Google Indonesia",
+ "address" : "Jalan ahmad yani",
+ "industry" : "Teknologi",
+ "job_tittle" : "Golang Developer",
+ "salary" : 1000000,
+ "type" : "full time",
+ "job_description" : "good communication",
+ "location" : "jakarta",
+ "requirements" : "good",
+ "skills" : "golang",
+ "category" : "IT and Software"
 }
 ```
 
