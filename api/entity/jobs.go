@@ -10,6 +10,8 @@ type Job struct {
 	Type           string `json:"type"`
 	JobDescription string `json:"job_description"`
 	Requirements   string `json:"requirements"`
+	Location       string `json:"location"`
+	Category       string `json:"category"`
 	Skills         string `json:"skills"`
 	HireID         int    `json:"hire_id"`
 }
@@ -24,4 +26,6 @@ type JobInput struct {
 	JobDescription string `json:"job_description"`
 	Requirements   string `json:"requirements"`
 	Skills         string `json:"skills"`
+	Location       string `json:"location"`
+	Category       string `json:"category"`
 }

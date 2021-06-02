@@ -60,7 +60,7 @@ func (h *jobSeekerProfileHandler) SaveNewProfileHandler(c *gin.Context) {
 		return
 	}
 
-	pathJobSeekerProfile := "localhost/" + path
+	pathJobSeekerProfile := "https://excho-job.herokuapp.com/" + path
 
 	userProfile, err := h.service.SaveNewProfile(pathJobSeekerProfile, userData)
 
@@ -102,7 +102,7 @@ func (h *jobSeekerProfileHandler) UpdateProfileByIDHandler(c *gin.Context) {
 		return
 	}
 
-	pathProfileSave := "localhost/" + path
+	pathProfileSave := "https://excho-job.herokuapp.com/" + path
 
 	userProfile, err := h.service.UpdateProfileByID(pathProfileSave, ID)
 

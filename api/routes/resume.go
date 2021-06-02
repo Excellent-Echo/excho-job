@@ -9,12 +9,12 @@ import (
 
 var (
 	resumeRepository = resume.NewRepository(DB)
-	resumeService = resume.NewService(resumeRepository)
-	resumeHandler = handler.NewResumeHandler(resumeService)
+	resumeService    = resume.NewService(resumeRepository)
+	resumeHandler    = handler.NewResumeHandler(resumeService)
 )
 
 func ResumeRoute(r *gin.Engine) {
-	r.GET("/users/job-seeker/resume", handler.Middleware(authService), resumeHandler.GetResemuByJobSeekerIDHandler)
-	r.POST("/users/job-seeker/resume", handler.Middleware(authService), resumeHandler.SaveNewResumeeHandler)
-	r.PUT("/users/job-seeker/resume", handler.Middleware(authService), resumeHandler.UpdateResumeByIDHandler)
+	r.GET("job-seeker-resume", handler.Middleware(authService), resumeHandler.GetResemuByJobSeekerIDHandler)
+	r.POST("job-seeker-resume", handler.Middleware(authService), resumeHandler.SaveNewResumeeHandler)
+	r.PUT("job-seeker-resume", handler.Middleware(authService), resumeHandler.UpdateResumeByIDHandler)
 }

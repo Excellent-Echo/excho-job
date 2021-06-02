@@ -5,13 +5,13 @@ import (
 )
 
 type JobSeekerFormat struct {
-	ID int `json:"id"`
+	ID       int    `json:"id"`
 	FullName string `json:"full_name"`
-	Email string `json:"email"`
+	Email    string `json:"email"`
 }
 
 type DeleteFormat struct {
-	Message    string    `json:"message"`
+	Message string `json:"message"`
 }
 
 func FormatJobSeeker(JobSeeker entity.JobSeeker) JobSeekerFormat {
@@ -25,7 +25,7 @@ func FormatJobSeeker(JobSeeker entity.JobSeeker) JobSeekerFormat {
 
 func FormatDeleteUser(msg string) DeleteFormat {
 	var deleteFormat = DeleteFormat{
-		Message:    msg,
+		Message: msg,
 	}
 	return deleteFormat
 }

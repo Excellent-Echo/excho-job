@@ -9,7 +9,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-type Service interface{
+type Service interface {
 	GetAllJobSeeker() ([]JobSeekerFormat, error)
 	GetJobSeekerByID(ID string) (JobSeekerFormat, error)
 	SaveNewJobSeeker(jobSeeker entity.JobSeekerInput) (JobSeekerFormat, error)
@@ -18,9 +18,8 @@ type Service interface{
 	DeleteByJobSeekerID(id string) (interface{}, error)
 }
 
-type service struct{
+type service struct {
 	repository Repository
-	
 }
 
 func NewService(repo Repository) *service {
@@ -31,7 +30,7 @@ func NewService(repo Repository) *service {
 func (s *service) GetAllJobSeeker() ([]JobSeekerFormat, error) {
 	// Find all data job seeker from database
 	jobSeekers, err := s.repository.FindAll()
-	
+
 	//formating job seeker
 	var formatJobSeekers []JobSeekerFormat
 
@@ -68,8 +67,8 @@ func (s *service) GetJobSeekerByID(ID string) (JobSeekerFormat, error) {
 }
 
 // function for create new Job Seeker
-func(s *service) SaveNewJobSeeker(jobSeeker entity.JobSeekerInput) (JobSeekerFormat, error) {
-	
+func (s *service) SaveNewJobSeeker(jobSeeker entity.JobSeekerInput) (JobSeekerFormat, error) {
+
 	//generate password with bcrypt
 	genPassword, err := bcrypt.GenerateFromPassword([]byte(jobSeeker.Password), bcrypt.MinCost)
 
@@ -80,7 +79,7 @@ func(s *service) SaveNewJobSeeker(jobSeeker entity.JobSeekerInput) (JobSeekerFor
 	// Fill value into entity.jobseeker
 	var newJobSeeker = entity.JobSeeker{
 		FullName: jobSeeker.FullName,
-		Email: jobSeeker.Email,
+		Email:    jobSeeker.Email,
 		Password: string(genPassword),
 	}
 
@@ -102,7 +101,7 @@ func (s *service) LoginJobSeeker(input entity.InputLoginJobSeeker) (entity.JobSe
 	if err != nil {
 		return jobSeeker, err
 	}
-	
+
 	if jobSeeker.ID == 0 {
 		return jobSeeker, errors.New("user not found")
 	}

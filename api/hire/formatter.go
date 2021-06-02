@@ -9,6 +9,10 @@ type HireFormat struct {
 	Position string `json:"position"`
 }
 
+type DeleteFormat struct {
+	Message string `json:"message"`
+}
+
 func FormatHire(hire entity.Hire) HireFormat {
 	var formatHire = HireFormat{
 		ID:       hire.ID,
@@ -17,4 +21,11 @@ func FormatHire(hire entity.Hire) HireFormat {
 		Position: hire.Position,
 	}
 	return formatHire
+}
+
+func FormatDeleteUser(msg string) DeleteFormat {
+	var deleteFormat = DeleteFormat{
+		Message: msg,
+	}
+	return deleteFormat
 }

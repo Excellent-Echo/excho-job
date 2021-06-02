@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Repository interface{
+type Repository interface {
 	FindAll() ([]entity.JobSeekerDetails, error)
 	Create(input entity.JobSeekerDetails) (entity.JobSeekerDetails, error)
 	FindByJobSeekerID(ID string) (entity.JobSeekerDetails, error)
@@ -30,7 +30,7 @@ func (r *repository) FindAll() ([]entity.JobSeekerDetails, error) {
 	return users, nil
 }
 
-func(r *repository) Create(input entity.JobSeekerDetails) (entity.JobSeekerDetails, error) {
+func (r *repository) Create(input entity.JobSeekerDetails) (entity.JobSeekerDetails, error) {
 	if err := r.db.Create(&input).Error; err != nil {
 		return input, err
 	}

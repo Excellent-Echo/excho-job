@@ -45,7 +45,7 @@ func (r *repository) UpdateByID(ID string, dataUpdate map[string]interface{}) (e
 		return resume, err
 	}
 
-	if err := r.db.Where("id = ?", ID).Find(&resume).Error; err != nil {
+	if err := r.db.Where("job_seeker_id = ?", ID).Find(&resume).Error; err != nil {
 		return resume, err
 	}
 

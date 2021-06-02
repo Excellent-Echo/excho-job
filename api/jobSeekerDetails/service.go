@@ -8,17 +8,17 @@ import (
 	"strconv"
 )
 
-type Service interface{
+type Service interface {
 	GetAllJobSeekerDetails() ([]JobSeekerDetailsFormat, error)
 	SaveNewDetail(input entity.JobSeekerDetailInput, ID string) (entity.JobSeekerDetails, error)
 	UpdateDetailsByJobSeekerID(id string, dataInput entity.JobSeekerDetailInput) (JobSeekerDetailsFormat, error)
 }
 
-type service struct{
+type service struct {
 	repository Repository
 }
 
-func NewService(repo Repository) *service{
+func NewService(repo Repository) *service {
 	return &service{repo}
 }
 
@@ -38,7 +38,7 @@ func (s *service) GetAllJobSeekerDetails() ([]JobSeekerDetailsFormat, error) {
 	return formatJobSeekerDetails, nil
 }
 
-func(s *service) SaveNewDetail(input entity.JobSeekerDetailInput, ID string) (entity.JobSeekerDetails, error) {
+func (s *service) SaveNewDetail(input entity.JobSeekerDetailInput, ID string) (entity.JobSeekerDetails, error) {
 	IDUser, _ := strconv.Atoi(ID)
 
 	checkStatus, err := s.repository.FindByJobSeekerID(ID)
@@ -56,14 +56,13 @@ func(s *service) SaveNewDetail(input entity.JobSeekerDetailInput, ID string) (en
 		NoHandphone: input.NoHandphone,
 		Gender:      input.Gender,
 		Address:     input.Address,
-		Experience: input.Experience,
-		Education: input.Education,
-		Skills: input.Skills,
+		Experience:  input.Experience,
+		Education:   input.Education,
+		Skills:      input.Skills,
 		JobSeekerID: IDUser,
 	}
 
 	createJobSeekerDetail, err := s.repository.Create(NewJobSeekerDetail)
-
 
 	if err != nil {
 		return createJobSeekerDetail, err
@@ -104,7 +103,6 @@ func (s *service) UpdateDetailsByJobSeekerID(id string, dataInput entity.JobSeek
 	if dataInput.Skills != "" || len(dataInput.Skills) != 0 {
 		dataUpdate["skills"] = dataInput.Skills
 	}
-
 
 	jobSeekerUpdated, err := s.repository.UpdateByJobSeekerID(id, dataUpdate)
 
