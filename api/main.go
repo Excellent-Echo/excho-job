@@ -10,7 +10,7 @@ import (
 func main() {
 	r := gin.Default()
 
-	// CORS disable
+	// CORS
 	r.Use(cors.Default())
 
 	routes.JobSeekerRoute(r)
