@@ -21,5 +21,5 @@ func main() {
 	routes.JobProfileRoute(r)
 	routes.JobSeekerProfileRoute(r)
 
-	r.Run(":5555")
+	r.Run()
 }

@@ -25,3 +25,11 @@ type UpdateHireInput struct {
 	Email    string `json:"email"`
 	Position string `json:"position"`
 }
+
+type HireByIdOutput struct {
+	ID       int    `json:"id"`
+	FullName string `json:"full_name"`
+	Email    string `json:"email"`
+	Position string `json:"position"`
+	Jobs     []Job  `json:"jobs"`
+}
