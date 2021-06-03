@@ -30,14 +30,14 @@ export default function GuestHeader() {
               </div>
 
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                <Link to="/signin">
+                {/* <Link to="/signin">
                   <a
                     href="/#"
                     className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
                   >
                     Sign in
                   </a>
-                </Link>
+                </Link> */}
                 <Link to="/signup-jobseeker">
                   <a
                     href="/#"
