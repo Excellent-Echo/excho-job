@@ -8,6 +8,7 @@ type JobSeeker struct {
 	JobSeekerDetail  JobSeekerDetails `gorm:"foreignKey:JobSeekerID"`
 	JobSeekerResume  Resume           `gorm:"foreignKey:JobSeekerID"`
 	JobSeekerProfile JobSeekerProfile `gorm:"foreignKey:JobSeekerID"`
+	Jobs             []*Job           `gorm:"many2many:apply_jobs"`
 }
 
 type JobSeekerDetails struct {
@@ -45,7 +46,8 @@ type Job struct {
 	Location       string
 	Category       string
 	HireID         int
-	JobProfile     JobProfile `gorm:"foreignKey:JobID"`
+	JobProfile     JobProfile   `gorm:"foreignKey:JobID"`
+	JobSeeker      []*JobSeeker `gorm:"many2many:apply_jobs"`
 }
 
 type Resume struct {
