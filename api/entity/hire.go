@@ -6,6 +6,7 @@ type Hire struct {
 	Email    string `gorm:"unique" json:"email"`
 	Position string `json:"position"`
 	Password string `json:"password"`
+	Role     int    `json:"role"`
 }
 
 type HireInput struct {

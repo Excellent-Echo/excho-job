@@ -81,6 +81,7 @@ func (s *service) SaveNewJobSeeker(jobSeeker entity.JobSeekerInput) (JobSeekerFo
 		FullName: jobSeeker.FullName,
 		Email:    jobSeeker.Email,
 		Password: string(genPassword),
+		Role:     2,
 	}
 
 	// creating new job seeker in database

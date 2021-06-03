@@ -88,6 +88,7 @@ func (s *service) SaveNewHire(hireInput entity.HireInput) (HireFormat, error) {
 		Email:    hireInput.Email,
 		Position: hireInput.Position,
 		Password: string(genPasswrod),
+		Role:     1,
 	}
 
 	createHire, err := s.repository.Create(newHire)
