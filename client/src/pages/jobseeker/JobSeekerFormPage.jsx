@@ -1,6 +1,6 @@
 import HeaderUser from "../../components/UserHeader";
 
-export default function JobSeekerForm() {
+export default function JobSeekerFormPage() {
   return (
     <>
       <HeaderUser />
