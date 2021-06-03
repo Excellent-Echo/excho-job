@@ -5,6 +5,7 @@ type JobSeeker struct {
 	FullName string `json:"full_name"`
 	Email    string `gorm:"unique" json:"email"`
 	Password string `json:"-"`
+	Role     int    `json:"role"`
 }
 
 type JobSeekerInput struct {

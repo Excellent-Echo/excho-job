@@ -5,6 +5,7 @@ type JobSeeker struct {
 	FullName         string
 	Email            string `gorm:"unique"`
 	Password         string
+	Role             int
 	JobSeekerDetail  JobSeekerDetails `gorm:"foreignKey:JobSeekerID"`
 	JobSeekerResume  Resume           `gorm:"foreignKey:JobSeekerID"`
 	JobSeekerProfile JobSeekerProfile `gorm:"foreignKey:JobSeekerID"`
@@ -29,6 +30,7 @@ type Hire struct {
 	Email    string `gorm:"unique"`
 	Position string
 	Password string
+	Role     int
 	Jobs     []Job `gorm:"foreignKey:HireID"`
 }
 
