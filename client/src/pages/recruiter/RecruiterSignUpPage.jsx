@@ -1,30 +1,34 @@
-export default function RecruiterSignUp() {
+import React from "react";
+import ExchoJobIcon from "../../components/ExchoJobIcon";
+import GreetingSignUpRecruiter from "../../components/GreetingSignUpRecruiter";
+import SignInText from "../../components/SignInText";
+
+export default function RecruiterSignUpPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <p>testing</p>
       <div className="max-w-md w-full space-y-8">
         <div>
-          <img
-            className="mx-auto h-12 w-auto"
-            src="https://res.cloudinary.com/dulqd0xea/image/upload/v1622618507/excho-job/job-seeker-icon-3_mevmq5.png"
-            alt="Excho Job's Icon"
-          />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign up to your account
-          </h2>
+          {/*brand icon*/}
+          <ExchoJobIcon />
+          {/*brand icon*/}
+
+          {/*greeting text*/}
+          <GreetingSignUpRecruiter />
+          {/*greeting text*/}
+
           <p className="mt-2 text-center text-sm text-gray-600">
             Or
-            <p className="text-center text-base font-medium text-gray-500">
-              Already have an account
-              <a href="/#" className="text-indigo-600 hover:text-indigo-500">
-                Sign in
-              </a>
-            </p>
+            {/*sign in text*/}
+            <SignInText />
+            {/*sign in text*/}
           </p>
         </div>
+
         <form className="mt-8 space-y-6" action="#" method="POST">
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
+            {/*full name*/}
             <div>
               <label htmlFor="full-name" className="sr-only">
                 Full name
@@ -37,6 +41,9 @@ export default function RecruiterSignUp() {
                 placeholder="Full name"
               />
             </div>
+            {/*full name*/}
+
+            {/*email*/}
             <div>
               <label htmlFor="email-address" className="sr-only">
                 Email address
@@ -49,9 +56,12 @@ export default function RecruiterSignUp() {
                 placeholder="Email address"
               />
             </div>
+            {/*email*/}
+
+            {/*position*/}
             <div>
               <label htmlFor="full-name" className="sr-only">
-                Full name
+                Position
               </label>
               <input
                 name="position"
@@ -61,6 +71,9 @@ export default function RecruiterSignUp() {
                 placeholder="Position"
               />
             </div>
+            {/*position*/}
+
+            {/*password*/}
             <div>
               <label htmlFor="password" className="sr-only">
                 Password
@@ -75,7 +88,10 @@ export default function RecruiterSignUp() {
                 placeholder="Password"
               />
             </div>
+            {/*password*/}
           </div>
+
+          {/*submit sign up button*/}
           <div>
             <button
               type="submit"
@@ -84,6 +100,7 @@ export default function RecruiterSignUp() {
               Sign up
             </button>
           </div>
+          {/*submit sign up button*/}
         </form>
       </div>
     </div>
