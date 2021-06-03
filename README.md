@@ -6,4 +6,4 @@
 | 2. Muhamad Aziz          | Full Stack Dev | [mohammedazez](https://github.com/mohammedazez)
 | 2. Muhammad Fauzul Hanif | Front-End Dev  | [efzedel16](https://github.com/efzedel16)
 
-© 2021 by Excho Job Teams
+© 2021 by Excho Job's Team
