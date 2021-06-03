@@ -31,7 +31,7 @@ const stopLoading = () => ({
   type: "USER_LOGIN_STOP_LOADING",
 });
 
-const loginRecruiter = (email, password) => async (dispatch) => {
+const loginRecruiter = (email, password, history) => async (dispatch) => {
   try {
     dispatch(startLoading());
     dispatch(setErrorMessage(""));
@@ -51,6 +51,7 @@ const loginRecruiter = (email, password) => async (dispatch) => {
 
     localStorage.setItem("accessToken", accessToken);
 
+    history.push("/form-recruiter");
     dispatch(stopLoading());
   } catch (error) {
     console.log(error);
@@ -58,7 +59,7 @@ const loginRecruiter = (email, password) => async (dispatch) => {
   }
 };
 
-const loginJobSeeker = (email, password) => async (dispatch) => {
+const loginJobSeeker = (email, password, history) => async (dispatch) => {
   try {
     dispatch(startLoading());
     dispatch(setErrorMessage(""));
@@ -78,6 +79,7 @@ const loginJobSeeker = (email, password) => async (dispatch) => {
 
     localStorage.setItem("accessToken", accessToken);
 
+    history.push("/form-jobseeker");
     dispatch(stopLoading());
   } catch (error) {
     console.log(error);

@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import userLoginAction from "../../redux/user/login/userLoginAction";
 
 export default function SignIn() {
   const userLoginData = useSelector((state) => state.userLogin);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const loginSubmitHandler = (e) => {
     e.preventDefault();
@@ -12,7 +13,8 @@ export default function SignIn() {
     dispatch(
       userLoginAction.loginJobSeeker(
         userLoginData.email,
-        userLoginData.password
+        userLoginData.password,
+        history
       )
     );
   };
@@ -103,6 +105,8 @@ export default function SignIn() {
           <div>
             <button
               type="submit"
+              value={userLoginData.isLoading ? "Loading..." : "Login"}
+              disabled={userLoginData.isLoading ? true : false}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Sign in
