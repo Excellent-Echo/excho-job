@@ -106,6 +106,42 @@ const jobSeekerRegister = (fullName, email, password) => async (dispatch) => {
   }
 };
 
+// register for recruiter
+const recruiterRegister =
+  (fullName, email, position, password) => async (dispatch) => {
+    try {
+      console.log("Click Button");
+      dispatch(startLoading());
+      dispatch(setSuccessMessage(""));
+      dispatch(setErrorMessage(""));
+      const addNewData = {
+        full_name: fullName,
+        email: email,
+        position: position,
+        password: password,
+      };
+
+      const user = await exchoJobClient({
+        method: "POST",
+        url: "/users/hire/register",
+        data: addNewData,
+      });
+
+      dispatch(
+        setSuccessMessage("Success Registraion recruiter now you can login")
+      );
+      dispatch(stopLoading());
+    } catch (error) {
+      console.log(error.response);
+      dispatch(
+        setErrorMessage(
+          error.response.data.data.errors || ["internal server error"]
+        )
+      );
+      dispatch(stopLoading());
+    }
+  };
+
 const userRegisterAction = {
   resetForm,
   setFullName,
@@ -113,6 +149,7 @@ const userRegisterAction = {
   setPosition,
   setPassword,
   jobSeekerRegister,
+  recruiterRegister,
 };
 
 export default userRegisterAction;
