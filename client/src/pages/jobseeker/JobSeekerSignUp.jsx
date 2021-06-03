@@ -1,7 +1,47 @@
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import userRegisterAction from "../../redux/user/register/userRegisterAction";
+
 export default function JobSeekerSignUp() {
+  const userRegisterData = useSelector((state) => state.userRegister);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userRegisterAction.resetForm());
+    // eslint-disable-next-line
+  }, []);
+
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      userRegisterAction.jobSeekerRegister(
+        userRegisterData.fullName,
+        userRegisterData.email,
+        userRegisterData.password
+      )
+    );
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+        <h1>{JSON.stringify(userRegisterData)}</h1>
+        {/* Error Message */}
+        {userRegisterData.errorMessage && (
+          <ul>
+            {userRegisterData.errorMessage.map((error, index) => {
+              return <li key={index}>{error}</li>;
+            })}
+          </ul>
+        )}
+
+        {/* Success Message */}
+        {userRegisterData.successMessage && (
+          <p>{userRegisterData.successMessage}</p>
+        )}
+
         <div>
           <img
             className="mx-auto h-12 w-auto"
@@ -9,19 +49,19 @@ export default function JobSeekerSignUp() {
             alt="Excho Job's Icon"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign up to your account
+            Sign up to be Job Seeker
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or{" "}
+            Or
             <p className="text-center text-base font-medium text-gray-500">
-              Already have an account?{" "}
-              <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                Sign in
+              Already have an account?
+              <a href="/#" className="text-indigo-600 hover:text-indigo-500">
+                <Link to="/signin">Sign in</Link>
               </a>
             </p>
           </p>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" onSubmit={handleRegisterSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -29,25 +69,25 @@ export default function JobSeekerSignUp() {
                 Full name
               </label>
               <input
-                id="full-name"
-                name="fullname"
                 type="text"
-                autoComplete="fullname"
                 required
+                value={userRegisterData.fullName}
+                onChange={(event) =>
+                  dispatch(userRegisterAction.setFullName(event.target.value))
+                }
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Full name"
               />
             </div>
             <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
+              <label className="sr-only">Email address</label>
               <input
-                id="email-address"
-                name="email"
                 type="email"
-                autoComplete="email"
                 required
+                value={userRegisterData.email}
+                onChange={(event) =>
+                  dispatch(userRegisterAction.setEmail(event.target.value))
+                }
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
@@ -57,11 +97,12 @@ export default function JobSeekerSignUp() {
                 Password
               </label>
               <input
-                id="password"
-                name="password"
                 type="password"
-                autoComplete="current-password"
                 required
+                value={userRegisterData.password}
+                onChange={(event) =>
+                  dispatch(userRegisterAction.setPassword(event.target.value))
+                }
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
@@ -70,6 +111,8 @@ export default function JobSeekerSignUp() {
           <div>
             <button
               type="submit"
+              value={userRegisterData.isLoading ? "Loading..." : "Register"}
+              disabled={userRegisterData.isLoading ? true : false}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Sign up
