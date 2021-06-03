@@ -1,4 +1,24 @@
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getJobAction } from "../redux/jobs/jobAction";
+import { useHistory } from "react-router-dom";
+
 export default function GuestMainPage() {
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.jobReducer);
+  console.log("selector view", selector);
+  const { listJob, loading, error } = selector;
+
+  const history = useHistory();
+
+  const handleClick = (id) => {
+    history.push(`/job-detail/${id}`);
+  };
+
+  useEffect(() => {
+    dispatch(getJobAction());
+  }, [dispatch]);
+
   return (
     <>
       <div className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
@@ -174,140 +194,45 @@ export default function GuestMainPage() {
         </div>
 
         <main className="grid grid-cols-12 gap-6 my-10">
-          <a
-            className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="/#"
-          >
-            <div className="flex justify-center">
-              <img
-                className="h-16 mr-4"
-                src="https://www.crowde.co/static/images/logo-color.png"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="mb-1 font-medium">
-                Fullstack Website Developer
-              </span>
-              <span className="mb-1">Crowde</span>
-              <span className="mb-1 text-gray-500">
-                Jakarta Selatan, Indonesia
-              </span>
-              <span className="mb-1 text-gray-500">Actively Hiring</span>
-              <span className="">
-                <span className="font-medium text-green-900">11 hours ago</span>{" "}
-                ◾ <span className="font-medium text-blue-900">Apply Now</span>
-              </span>
-            </div>
-          </a>
-
-          <a
-            className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="/#"
-          >
-            <div className="flex justify-center">
-              <img
-                className="h-16 mr-4"
-                src="https://www.crowde.co/static/images/logo-color.png"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="mb-1 font-medium">
-                Fullstack Website Developer
-              </span>
-              <span className="mb-1">Crowde</span>
-              <span className="mb-1 text-gray-500">
-                Jakarta Selatan, Indonesia
-              </span>
-              <span className="mb-1 text-gray-500">Actively Hiring</span>
-              <span className="">
-                <span className="font-medium text-green-900">11 hours ago</span>{" "}
-                ◾ <span className="font-medium text-blue-900">Apply Now</span>
-              </span>
-            </div>
-          </a>
-
-          <a
-            className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="/#"
-          >
-            <div className="flex justify-center">
-              <img
-                className="h-16 mr-4"
-                src="https://www.crowde.co/static/images/logo-color.png"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="mb-1 font-medium">
-                Fullstack Website Developer
-              </span>
-              <span className="mb-1">Crowde</span>
-              <span className="mb-1 text-gray-500">
-                Jakarta Selatan, Indonesia
-              </span>
-              <span className="mb-1 text-gray-500">Actively Hiring</span>
-              <span className="">
-                <span className="font-medium text-green-900">11 hours ago</span>{" "}
-                ◾ <span className="font-medium text-blue-900">Apply Now</span>
-              </span>
-            </div>
-          </a>
-
-          <a
-            className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="/#"
-          >
-            <div className="flex justify-center">
-              <img
-                className="h-16 mr-4"
-                src="https://www.crowde.co/static/images/logo-color.png"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="mb-1 font-medium">
-                Fullstack Website Developer
-              </span>
-              <span className="mb-1">Crowde</span>
-              <span className="mb-1 text-gray-500">
-                Jakarta Selatan, Indonesia
-              </span>
-              <span className="mb-1 text-gray-500">Actively Hiring</span>
-              <span className="">
-                <span className="font-medium text-green-900">11 hours ago</span>{" "}
-                ◾ <span className="font-medium text-blue-900">Apply Now</span>
-              </span>
-            </div>
-          </a>
-
-          <a
-            className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="/#"
-          >
-            <div className="flex justify-center">
-              <img
-                className="h-16 mr-4"
-                src="https://www.crowde.co/static/images/logo-color.png"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="mb-1 font-medium">
-                Fullstack Website Developer
-              </span>
-              <span className="mb-1">Crowde</span>
-              <span className="mb-1 text-gray-500">
-                Jakarta Selatan, Indonesia
-              </span>
-              <span className="mb-1 text-gray-500">Actively Hiring</span>
-              <span className="">
-                <span className="font-medium text-green-900">11 hours ago</span>{" "}
-                ◾ <span className="font-medium text-blue-900">Apply Now</span>
-              </span>
-            </div>
-          </a>
+          {loading ? (
+            <h1>Loading</h1>
+          ) : error ? (
+            <h1>Error</h1>
+          ) : (
+            <>
+              {listJob.map((job) => (
+                <a
+                  className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
+                  href="/#"
+                >
+                  <div className="flex justify-center">
+                    <img
+                      className="h-16 mr-4"
+                      src="https://www.crowde.co/static/images/logo-color.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="mb-1 font-medium">{job.job_tittle}</span>
+                    <span className="mb-1">{job.company_name}</span>
+                    <span className="mb-1 text-gray-500">{job.location}</span>
+                    <span className="mb-1 text-gray-500">Actively Hiring</span>
+                    <span className="">
+                      <span className="font-medium text-green-900">
+                        11 hours ago
+                      </span>
+                      <span
+                        onClick={() => handleClick(job.id)}
+                        className="font-medium text-blue-900"
+                      >
+                        See Details
+                      </span>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </>
+          )}
         </main>
 
         {/*pagination*/}
