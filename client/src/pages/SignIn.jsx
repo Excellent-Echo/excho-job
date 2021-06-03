@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SignIn() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -12,11 +14,11 @@ export default function SignIn() {
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or{" "}
+            Or
             <p className="text-center text-base font-medium text-gray-500">
-              Don't have an account yet?{" "}
-              <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                Sign up
+              Don't have an account yet?
+              <a href="/#" className="text-indigo-600 hover:text-indigo-500">
+                <Link to="/signup-jobseeker">Sign up</Link>
               </a>
             </p>
           </p>
@@ -71,7 +73,7 @@ export default function SignIn() {
 
             <div className="text-sm">
               <a
-                href="#"
+                href="/#"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Forgot your password?

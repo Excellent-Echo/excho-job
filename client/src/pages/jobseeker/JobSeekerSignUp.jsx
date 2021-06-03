@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function JobSeekerSignUp() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -9,19 +11,19 @@ export default function JobSeekerSignUp() {
             alt="Excho Job's Icon"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign up to your account
+            Sign up to be Job Seeker
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or{" "}
+            Or
             <p className="text-center text-base font-medium text-gray-500">
-              Already have an account?{" "}
-              <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                Sign in
+              Already have an account?
+              <a href="/#" className="text-indigo-600 hover:text-indigo-500">
+                <Link to="/signin">Sign in</Link>
               </a>
             </p>
           </p>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" action="/#" method="POST">
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
