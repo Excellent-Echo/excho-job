@@ -6,6 +6,7 @@ import SearchJobType from "../components/SearchJobType";
 import SearchJobCategory from "../components/SearchJobCategory";
 import JobCard from "../components/JobCard";
 import GuestHeader from "../components/GuestHeader";
+import Footer from "../components/Footer";
 
 export default function GuestMainPage() {
   return (
@@ -53,6 +54,8 @@ export default function GuestMainPage() {
         {/*pagination*/}
         <Pagination />
         {/*pagination*/}
+
+        <Footer />
       </div>
     </>
   );
