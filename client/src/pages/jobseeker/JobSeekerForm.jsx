@@ -1,14 +1,13 @@
-import HeaderUser from "../../components/HeaderUser";
+import HeaderUser from "../../components/UserHeader";
 
-export default function InputFormJobseeker() {
+export default function JobSeekerForm() {
   return (
     <>
       <HeaderUser />
+
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Form Data Jobseeker
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900">Job Seeker Form</h1>
         </div>
       </header>
 
