@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function JobCard() {
   return (
-    <a
+    <Link
+      to="/job-details"
       className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-      href="/#"
     >
       <div className="flex justify-center">
         <img
@@ -21,6 +23,6 @@ export default function JobCard() {
           <span className="font-medium text-blue-900">Apply Now</span>
         </span>
       </div>
-    </a>
+    </Link>
   );
 }
