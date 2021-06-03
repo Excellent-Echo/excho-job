@@ -1,16 +1,14 @@
-// import SignUp from "./pages/SignUp";
-// import SignIn from "./pages/SignIn";
-// import SignIn from "./pages/SignIn";
-// import HeaderMainGuest from "./components/HeaderMainGuest";
-// import InputFormHires from "./pages/hires/InputFormHires";
-// import InputFormHires from "./pages/hires/InputFormHires";
-
-import InputFormJobseeker from "./pages/jobseeker/InputFormJobseeker";
+import RecruiterForm from "./pages/recruiter/RecruiterForm";
+import RecruiterSignUp from "./pages/recruiter/RecruiterSignUp";
+import GuestHeader from "./components/GuestHeader";
+import JobSeekerSignUp from "./pages/jobseeker/JobSeekerSignUp";
+import SignIn from "./pages/SignIn";
+import GuestMainPage from "./pages/GuestMainPage";
 
 function App() {
   return (
     <>
-      <InputFormJobseeker />
+      <GuestMainPage />
     </>
   );
 }
