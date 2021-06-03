@@ -1,6 +1,6 @@
 import UserHeader from "../../components/UserHeader";
 
-export default function JobDetails() {
+export default function JobDetailsPage() {
   return (
     <>
       <UserHeader />
