@@ -1,35 +1,57 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// components
-import GuestHeader from "./components/GuestHeader";
-
 // pages
-import RecruiterFormPage from "./pages/recruiter/RecruiterForm";
-import RecruiterSignUpPage from "./pages/recruiter/RecruiterSignUp";
-import JobSeekerSignUpPage from "./pages/jobseeker/JobSeekerSignUp";
-import SignInPage from "./pages/SignIn";
+import RecruiterFormPage from "./pages/recruiter/RecruiterFormPage";
+import RecruiterSignUpPage from "./pages/recruiter/RecruiterSignUpPage";
+import JobSeekerSignUpPage from "./pages/jobseeker/JobSeekerSignUpPage";
 import GuestMainPage from "./pages/GuestMainPage";
+import SignUpRolePage from "./pages/SignUpRolePage";
+import JobDetailsPage from "./pages/recruiter/JobDetailsPage";
+import UserMainPage from "./pages/UserMainPage";
+import SignInRolePage from "./pages/SignInRolePage";
+import JobSeekerSignInPage from "./pages/jobseeker/JobSeekerSignInPage";
+import RecruiterSignInPage from "./pages/recruiter/RecruiterSignInPage";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div>
-        <GuestHeader />
         <Switch>
-          <Route path="/signup-recruiter">
-            <RecruiterSignUpPage />
+          {/*sign up*/}
+          <Route exact path="/signup">
+            <SignUpRolePage />
           </Route>
-          <Route path="/form-recruiter">
-            <RecruiterFormPage />
-          </Route>
-          <Route path="/signup-jobseeker">
+          <Route exact path="/signup-jobseeker">
             <JobSeekerSignUpPage />
           </Route>
-          <Route path="/signin">
-            <SignInPage />
+          <Route exact path="/signup-recruiter">
+            <RecruiterSignUpPage />
           </Route>
-          <Route path="/">
+          {/*sign up*/}
+
+          {/*sign in*/}
+          <Route exact path="/signin">
+            <SignInRolePage />
+          </Route>
+          <Route exact path="/signin-jobseeker">
+            <JobSeekerSignInPage />
+          </Route>
+          <Route exact path="/signin-recruiter">
+            <RecruiterSignInPage />
+          </Route>
+          {/*sign in*/}
+
+          <Route exact path="/form-recruiter">
+            <RecruiterFormPage />
+          </Route>
+          <Route exact path="/job-details">
+            <JobDetailsPage />
+          </Route>
+          <Route exact path="/userpage">
+            <UserMainPage />
+          </Route>
+          <Route exact path="/">
             <GuestMainPage />
           </Route>
         </Switch>
@@ -37,5 +59,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
