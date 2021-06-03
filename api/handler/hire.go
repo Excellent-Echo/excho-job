@@ -32,6 +32,21 @@ func (h *hireHandler) ShowAllHireHandler(c *gin.Context) {
 	c.JSON(200, response)
 }
 
+func (h *hireHandler) ShowHireByID(c *gin.Context) {
+	id := c.Param("id")
+
+	user, err := h.hireService.GetHireByID(id)
+	if err != nil {
+		responseError := helper.APIResponse("error bad request", 400, "error", gin.H{"error": err.Error()})
+
+		c.JSON(400, responseError)
+		return
+	}
+
+	response := helper.APIResponse("success get user hire by ID", 200, "success", user)
+	c.JSON(200, response)
+}
+
 func (h *hireHandler) CreateHireHandler(c *gin.Context) {
 	var inputHire entity.HireInput
 

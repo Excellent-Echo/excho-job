@@ -4,6 +4,7 @@ import (
 	"errors"
 	"excho-job/entity"
 	"excho-job/helper"
+	"excho-job/jobs"
 	"fmt"
 
 	"golang.org/x/crypto/bcrypt"
@@ -11,6 +12,7 @@ import (
 
 type Service interface {
 	GetAllHire() ([]HireFormat, error)
+	GetHireByID(ID string) (HireDetailFormat, error)
 	SaveNewHire(hireInput entity.HireInput) (HireFormat, error)
 	LoginHire(input entity.InputLoginHire) (entity.Hire, error)
 	UpdateHireByID(id string, dataInput entity.UpdateHireInput) (HireFormat, error)
@@ -18,11 +20,12 @@ type Service interface {
 }
 
 type service struct {
-	repository Repository
+	repository     Repository
+	jobsRepository jobs.Repository
 }
 
-func NewService(repo Repository) *service {
-	return &service{repo}
+func NewService(repo Repository, jobsRepository jobs.Repository) *service {
+	return &service{repo, jobsRepository}
 }
 
 func (s *service) GetAllHire() ([]HireFormat, error) {
@@ -42,6 +45,36 @@ func (s *service) GetAllHire() ([]HireFormat, error) {
 	}
 
 	return formatHires, nil
+}
+
+func (s *service) GetHireByID(ID string) (HireDetailFormat, error) {
+	// if err := helper.ValidateIDNumber(ID); err != nil {
+	// 	return HireDetailFormat{}, err
+	// }
+
+	hire, err := s.repository.FindByID(ID)
+	Job, err := s.jobsRepository.FindByHireID(ID)
+
+	if err != nil {
+		return HireDetailFormat{}, err
+	}
+
+	var hireData = entity.HireByIdOutput{
+		ID:       hire.ID,
+		FullName: hire.FullName,
+		Email:    hire.Email,
+		Position: hire.Position,
+		Jobs:     Job,
+	}
+
+	if hire.ID == 0 {
+		newError := fmt.Sprintf("hire id %s not found", ID)
+		return HireDetailFormat{}, errors.New(newError)
+	}
+
+	formatUser := FormatDetailHire(hireData)
+
+	return formatUser, nil
 }
 
 func (s *service) SaveNewHire(hireInput entity.HireInput) (HireFormat, error) {

@@ -10,6 +10,7 @@ type Repository interface {
 	FindAll() ([]entity.Job, error)
 	Create(job entity.Job) (entity.Job, error)
 	FindByID(ID string) (entity.Job, error)
+	FindByHireID(ID string) ([]entity.Job, error)
 	FindByLocation(location string) (entity.Job, error)
 	FindByCategory(category string) (entity.Job, error)
 	FindByType(Type string) (entity.Job, error)
@@ -38,6 +39,16 @@ func (r *repository) Create(job entity.Job) (entity.Job, error) {
 	if err := r.db.Create(&job).Error; err != nil {
 		return job, err
 	}
+	return job, nil
+}
+
+func (r *repository) FindByHireID(ID string) ([]entity.Job, error) {
+	var job []entity.Job
+
+	if err := r.db.Where("hire_id = ?", ID).Find(&job).Error; err != nil {
+		return job, err
+	}
+
 	return job, nil
 }
 
