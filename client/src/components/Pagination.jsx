@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Pagination() {
   return (
-    <div className="bg-white px-4 py-3 flex items-center justify-center border-t border-gray-200 sm:px-6">
+    <div className="bg-white px-4 py-3 flex items-center justify-center border-gray-200 sm:px-6">
       <div className="sm:flex-1 sm:flex sm:items-center sm:justify-center">
         <div>
           <nav
