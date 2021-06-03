@@ -5,10 +5,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GuestHeader from "./components/GuestHeader";
 
 // pages
-import RecruiterForm from "./pages/recruiter/RecruiterForm";
 import RecruiterSignUp from "./pages/recruiter/RecruiterSignUp";
+import RecruiterSignIn from "./pages/recruiter/RecruiterSignIn";
+import RecruiterForm from "./pages/recruiter/RecruiterForm";
 import JobSeekerSignUp from "./pages/jobseeker/JobSeekerSignUp";
-import SignIn from "./pages/SignIn";
+import JobSeekerSignIn from "./pages/jobseeker/JobSeekerSignIn";
+import JobSeekerForm from "./pages/jobseeker/JobSeekerForm.jsx";
 import GuestMainPage from "./pages/GuestMainPage";
 
 function App() {
@@ -20,14 +22,20 @@ function App() {
           <Route path="/signup-recruiter">
             <RecruiterSignUp />
           </Route>
+          <Route path="/signin-recruiter">
+            <RecruiterSignIn />
+          </Route>
           <Route path="/form-recruiter">
             <RecruiterForm />
           </Route>
           <Route path="/signup-jobseeker">
             <JobSeekerSignUp />
           </Route>
-          <Route path="/signin">
-            <SignIn />
+          <Route path="/signin-jobseeker">
+            <JobSeekerSignIn />
+          </Route>
+          <Route path="/form-jobseeker">
+            <JobSeekerForm />
           </Route>
           <Route path="/">
             <GuestMainPage />
