@@ -1,4 +1,4 @@
-// import SignUp from "./pages/SignUp";
+import SignUp from "./pages/SignUp";
 // import SignIn from "./pages/SignIn";
 // import SignIn from "./pages/SignIn";
 // import HeaderMainGuest from "./components/HeaderMainGuest";
@@ -10,7 +10,7 @@ import InputFormJobseeker from "./pages/jobseeker/InputFormJobseeker";
 function App() {
   return (
     <>
-      <InputFormJobseeker />
+      <SignUp />
     </>
   );
 }
