@@ -1,9 +1,6 @@
-import GuestHeader from "../components/GuestHeader";
-
 export default function GuestMainPage() {
   return (
     <>
-      <GuestHeader />
       <div className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <div className="sm:text-center lg:text-left">
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
@@ -93,7 +90,7 @@ export default function GuestMainPage() {
                 aria-label="Pagination"
               >
                 <a
-                  href="#"
+                  href="/#"
                   className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                 >
                   <span className="sr-only">Previous</span>
@@ -112,20 +109,20 @@ export default function GuestMainPage() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   aria-current="page"
                   className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   1
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   2
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
                 >
                   3
@@ -134,25 +131,25 @@ export default function GuestMainPage() {
                   ...
                 </span>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
                 >
                   8
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   9
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   10
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                 >
                   <span className="sr-only">Next</span>
@@ -179,7 +176,7 @@ export default function GuestMainPage() {
         <main className="grid grid-cols-12 gap-6 my-10">
           <a
             className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="#"
+            href="/#"
           >
             <div className="flex justify-center">
               <img
@@ -206,7 +203,7 @@ export default function GuestMainPage() {
 
           <a
             className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="#"
+            href="/#"
           >
             <div className="flex justify-center">
               <img
@@ -233,7 +230,7 @@ export default function GuestMainPage() {
 
           <a
             className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="#"
+            href="/#"
           >
             <div className="flex justify-center">
               <img
@@ -260,7 +257,7 @@ export default function GuestMainPage() {
 
           <a
             className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="#"
+            href="/#"
           >
             <div className="flex justify-center">
               <img
@@ -287,7 +284,7 @@ export default function GuestMainPage() {
 
           <a
             className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-            href="#"
+            href="/#"
           >
             <div className="flex justify-center">
               <img
@@ -322,7 +319,7 @@ export default function GuestMainPage() {
                 aria-label="Pagination"
               >
                 <a
-                  href="#"
+                  href="/#"
                   className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                 >
                   <span className="sr-only">Previous</span>
@@ -341,20 +338,20 @@ export default function GuestMainPage() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   aria-current="page"
                   className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   1
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   2
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
                 >
                   3
@@ -363,25 +360,25 @@ export default function GuestMainPage() {
                   ...
                 </span>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
                 >
                   8
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   9
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
                 >
                   10
                 </a>
                 <a
-                  href="#"
+                  href="/#"
                   className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                 >
                   <span className="sr-only">Next</span>

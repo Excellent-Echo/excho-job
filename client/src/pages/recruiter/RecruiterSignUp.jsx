@@ -12,10 +12,10 @@ export default function RecruiterSignUp() {
             Sign up to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or{" "}
+            Or
             <p className="text-center text-base font-medium text-gray-500">
               Already have an account?{" "}
-              <a href="#" className="text-indigo-600 hover:text-indigo-500">
+              <a href="/#" className="text-indigo-600 hover:text-indigo-500">
                 Sign in
               </a>
             </p>
@@ -29,10 +29,8 @@ export default function RecruiterSignUp() {
                 Full name
               </label>
               <input
-                id="full-name"
                 name="fullname"
                 type="text"
-                autoComplete="fullname"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Full name"
@@ -43,13 +41,23 @@ export default function RecruiterSignUp() {
                 Email address
               </label>
               <input
-                id="email-address"
                 name="email"
                 type="email"
-                autoComplete="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
+              />
+            </div>
+            <div>
+              <label htmlFor="full-name" className="sr-only">
+                Full name
+              </label>
+              <input
+                name="position"
+                type="text"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Position"
               />
             </div>
             <div>
