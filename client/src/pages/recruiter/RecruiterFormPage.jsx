@@ -1,6 +1,6 @@
 import HeaderUser from "../../components/UserHeader";
 
-export default function RecruiterForm() {
+export default function RecruiterFormPage() {
   return (
     <div className="select-none">
       <HeaderUser />
