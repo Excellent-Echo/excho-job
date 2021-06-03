@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import userRegisterAction from "../../redux/user/register/userRegisterAction";
 
@@ -7,19 +7,21 @@ export default function JobSeekerSignUp() {
   const userRegisterData = useSelector((state) => state.userRegister);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(userRegisterAction.resetForm());
     // eslint-disable-next-line
   }, []);
 
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
+  const handleRegisterSubmit = (event) => {
+    event.preventDefault();
     dispatch(
       userRegisterAction.jobSeekerRegister(
         userRegisterData.fullName,
         userRegisterData.email,
-        userRegisterData.password
+        userRegisterData.password,
+        history
       )
     );
   };
@@ -56,7 +58,7 @@ export default function JobSeekerSignUp() {
             <p className="text-center text-base font-medium text-gray-500">
               Already have an account?
               <a href="/#" className="text-indigo-600 hover:text-indigo-500">
-                <Link to="/signin">Sign in</Link>
+                <Link to="/signin-jobseeker">Sign in</Link>
               </a>
             </p>
           </p>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import userRegisterAction from "../../redux/user/register/userRegisterAction";
 
@@ -7,6 +7,7 @@ export default function RecruiterSignUp() {
   const userRegisterData = useSelector((state) => state.userRegister);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(userRegisterAction.resetForm());
@@ -20,7 +21,8 @@ export default function RecruiterSignUp() {
         userRegisterData.fullName,
         userRegisterData.email,
         userRegisterData.position,
-        userRegisterData.password
+        userRegisterData.password,
+        history
       )
     );
   };

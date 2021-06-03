@@ -1,6 +1,22 @@
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getJobById } from "../../redux/jobs/jobAction";
 import UserHeader from "../../components/UserHeader";
 
 export default function JobDetails() {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(getJobById(id));
+    // eslint-disable-next-line
+  }, []);
+
+  const detailJob = useSelector((state) => state.jobReducer);
+  const { jobDetail } = detailJob;
+  console.log(jobDetail);
+
   return (
     <>
       <UserHeader />
@@ -25,7 +41,7 @@ export default function JobDetails() {
               <div className="flex flex-col">
                 {/*job position*/}
                 <span className="mb-2 text-2xl font-medium">
-                  Fullstack Website Developer
+                  {jobDetail.job_tittle}
                 </span>
                 {/*job position*/}
 
@@ -67,7 +83,7 @@ export default function JobDetails() {
                 />
                 <div className="flex flex-col ">
                   <p className="font-medium flex-1">Muhammad Fauzul Hanif</p>
-                  <p className=" flex-1">Senior Fullstack Web Developer</p>
+                  <p className=" flex-1">{jobDetail.job_tittle}</p>
                 </div>
               </div>
 

@@ -11,6 +11,7 @@ import RecruiterForm from "./pages/recruiter/RecruiterForm";
 import JobSeekerSignUp from "./pages/jobseeker/JobSeekerSignUp";
 import JobSeekerSignIn from "./pages/jobseeker/JobSeekerSignIn";
 import JobSeekerForm from "./pages/jobseeker/JobSeekerForm.jsx";
+import JobDetail from "./pages/jobseeker/JobDetails";
 import GuestMainPage from "./pages/GuestMainPage";
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/form-jobseeker">
             <JobSeekerForm />
+          </Route>
+          <Route path="/job-detail">
+            <JobDetail />
           </Route>
           <Route path="/">
             <GuestMainPage />

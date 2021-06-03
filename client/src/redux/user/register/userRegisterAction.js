@@ -73,42 +73,44 @@ const stopLoading = () => {
 };
 
 // register for job seeker
-const jobSeekerRegister = (fullName, email, password) => async (dispatch) => {
-  try {
-    console.log("Click Button");
-    dispatch(startLoading());
-    dispatch(setSuccessMessage(""));
-    dispatch(setErrorMessage(""));
-    const addNewData = {
-      full_name: fullName,
-      email: email,
-      password: password,
-    };
+const jobSeekerRegister =
+  (fullName, email, password, history) => async (dispatch) => {
+    try {
+      console.log("Click Button");
+      dispatch(startLoading());
+      dispatch(setSuccessMessage(""));
+      dispatch(setErrorMessage(""));
+      const addNewData = {
+        full_name: fullName,
+        email: email,
+        password: password,
+      };
 
-    const user = await exchoJobClient({
-      method: "POST",
-      url: "/users/job-seeker/register",
-      data: addNewData,
-    });
+      const user = await exchoJobClient({
+        method: "POST",
+        url: "/users/job-seeker/register",
+        data: addNewData,
+      });
 
-    dispatch(
-      setSuccessMessage("Success Registraion Job Seeker, now you can login")
-    );
-    dispatch(stopLoading());
-  } catch (error) {
-    console.log(error.response);
-    dispatch(
-      setErrorMessage(
-        error.response.data.data.errors || ["internal server error"]
-      )
-    );
-    dispatch(stopLoading());
-  }
-};
+      dispatch(
+        setSuccessMessage("Success Registraion job seeker now you can login")
+      );
+      history.push("/signin-jobseeker");
+      dispatch(stopLoading());
+    } catch (error) {
+      console.log(error.response);
+      dispatch(
+        setErrorMessage(
+          error.response.data.data.errors || ["internal server error"]
+        )
+      );
+      dispatch(stopLoading());
+    }
+  };
 
 // register for recruiter
 const recruiterRegister =
-  (fullName, email, position, password) => async (dispatch) => {
+  (fullName, email, position, password, history) => async (dispatch) => {
     try {
       console.log("Click Button");
       dispatch(startLoading());
@@ -130,6 +132,7 @@ const recruiterRegister =
       dispatch(
         setSuccessMessage("Success Registraion recruiter now you can login")
       );
+      history.push("/signin-recruiter");
       dispatch(stopLoading());
     } catch (error) {
       console.log(error.response);
