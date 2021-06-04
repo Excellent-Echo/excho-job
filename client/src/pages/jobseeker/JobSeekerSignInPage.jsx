@@ -41,7 +41,7 @@ export default function SignIn() {
             <p className="text-center text-base font-medium text-gray-500">
               Don't have an account yet?
               <a href="/#" className="text-indigo-600 hover:text-indigo-500">
-                <Link to="/signup-jobseeker">Sign up</Link>
+                <Link to="/signup">Sign up</Link>
               </a>
             </p>
           </p>
