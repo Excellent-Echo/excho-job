@@ -63,15 +63,14 @@ export default function UserHeader() {
                               {profile.map((item) => (
                                 <Menu.Item key={item}>
                                   {({ active }) => (
-                                    <a
-                                      href="/#"
+                                    <span
                                       className={classNames(
                                         active ? "bg-gray-100" : "",
                                         "block px-4 py-2 text-sm text-gray-700"
                                       )}
                                     >
                                       {item}
-                                    </a>
+                                    </span>
                                   )}
                                 </Menu.Item>
                               ))}
@@ -121,13 +120,12 @@ export default function UserHeader() {
                 </div>
                 <div className="mt-3 px-2 space-y-1">
                   {profile.map((item) => (
-                    <a
+                    <span
                       key={item}
-                      href="/#"
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                     >
                       {item}
-                    </a>
+                    </span>
                   ))}
                 </div>
               </div>

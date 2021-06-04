@@ -39,7 +39,7 @@ function App() {
           <Route path="/form-jobseeker">
             <JobSeekerForm />
           </Route>
-          <Route path="/job-detail">
+          <Route path="/job-detail/:id">
             <JobDetail />
           </Route>
           <Route path="/signin">
