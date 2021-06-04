@@ -6,7 +6,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { userLogout } from "../redux/user/login/userLoginAction";
 
-export default function GuestHeader() {
+export default function Header() {
   const dataUser = useSelector((state) => state.userLogin);
   console.log("data user", dataUser);
 
@@ -58,29 +58,11 @@ export default function GuestHeader() {
                         Sign in
                       </span>
                     </Link>
-                    <Link to="/signup-jobseeker">
+                    <Link to="/signup">
                       <span className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                         Sign up
                       </span>
                     </Link>
-
-                    <span className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border rounded-xl shadow-sm text-base font-medium text-indigo-600 shadow focus:shadow-inner">
-                      <Link to="/signup-recruiter">For Recruiter</Link>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </span>
                   </>
                 ) : (
                   <span
