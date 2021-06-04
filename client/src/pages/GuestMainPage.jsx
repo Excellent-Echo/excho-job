@@ -110,32 +110,31 @@ export default function GuestMainPage() {
           ) : (
             <>
               {listJob.map((job) => (
-                <a
-                  className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4"
-                  href="/#"
-                >
-                  <div className="flex justify-center">
-                    <img
-                      className="h-16 mr-4"
-                      src="https://www.crowde.co/static/images/logo-color.png"
-                      alt=""
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="mb-1 font-medium">{job.job_tittle}</span>
-                    <span className="mb-1">{job.company_name}</span>
-                    <span className="mb-1 text-gray-500">{job.location}</span>
-                    <span className="mb-1 text-gray-500">id: {job.id}</span>
-                    <span className="">
-                      <span
-                        onClick={() => handleClick(job.id)}
-                        className="font-medium text-blue-900"
-                      >
-                        See Details
+                <React.Fragment>
+                  <div className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4">
+                    <div className="flex justify-center">
+                      <img
+                        className="h-16 mr-4"
+                        src="https://www.crowde.co/static/images/logo-color.png"
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="mb-1 font-medium">{job.job_tittle}</span>
+                      <span className="mb-1">{job.company_name}</span>
+                      <span className="mb-1 text-gray-500">{job.location}</span>
+                      <span className="mb-1 text-gray-500">id: {job.id}</span>
+                      <span className="">
+                        <span
+                          onClick={() => handleClick(job.id)}
+                          className="font-medium text-blue-900"
+                        >
+                          See Details
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
-                </a>
+                </React.Fragment>
               ))}
             </>
           )}
