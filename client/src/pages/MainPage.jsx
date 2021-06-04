@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getJobAction } from "../redux/jobs/jobAction";
 import { useHistory } from "react-router-dom";
+import Header from "../components/Header";
 
-export default function GuestMainPage() {
+export default function MainPage() {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.jobReducer);
   console.log("selector view", selector);
@@ -21,6 +22,7 @@ export default function GuestMainPage() {
 
   return (
     <>
+      <Header />
       <div className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <div className="sm:text-center lg:text-left">
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
