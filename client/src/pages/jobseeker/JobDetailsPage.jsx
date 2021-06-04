@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 // import UserHeader from "../../components/UserHeader";
 
-export default function JobDetails() {
+export default function JobDetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
