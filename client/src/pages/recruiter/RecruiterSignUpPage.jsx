@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import userRegisterAction from "../../redux/user/register/userRegisterAction";
 
-export default function RecruiterSignUp() {
+export default function RecruiterSignUpPage() {
   const userRegisterData = useSelector((state) => state.userRegister);
 
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ export default function RecruiterSignUp() {
             <p className="text-center text-base font-medium text-gray-500">
               Already have an account
               <a href="/#" className="text-indigo-600 hover:text-indigo-500">
-                <Link to="/signin-recruiter">Sign in</Link>
+                <Link to="/signin">Sign in</Link>
               </a>
             </p>
           </p>
