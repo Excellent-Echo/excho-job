@@ -1,9 +1,21 @@
-const initialState = {
-  email: "",
-  password: "",
-  errorMessage: "",
-  isLoading: false,
-};
+// --------------- Check Token ---------------
+const token = localStorage.getItem("accessToken");
+
+const initialState = token
+  ? {
+      email: "",
+      password: "",
+      errorMessage: "",
+      isLoading: false,
+      isLogged: true,
+    }
+  : {
+      email: "",
+      password: "",
+      errorMessage: "",
+      isLoading: false,
+      isLogged: false,
+    };
 
 const userLoginReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,7 +46,11 @@ const userLoginReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
       };
-
+    case "LOGOUT":
+      return {
+        ...state,
+        isLogged: false,
+      };
     default:
       return state;
   }

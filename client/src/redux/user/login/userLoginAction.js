@@ -31,6 +31,12 @@ const stopLoading = () => ({
   type: "USER_LOGIN_STOP_LOADING",
 });
 
+const getlogout = () => {
+  return {
+    type: "LOGOUT",
+  };
+};
+
 const loginRecruiter = (email, password, history) => async (dispatch) => {
   try {
     dispatch(startLoading());
@@ -85,6 +91,14 @@ const loginJobSeeker = (email, password, history) => async (dispatch) => {
     console.log(error);
     dispatch(stopLoading());
   }
+};
+
+export const userLogout = (history) => {
+  return (dispatch) => {
+    localStorage.removeItem("accessToken");
+    dispatch(getlogout());
+    history.push("/");
+  };
 };
 
 const userLoginAction = {

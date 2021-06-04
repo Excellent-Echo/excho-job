@@ -58,7 +58,7 @@ export default function RecruiterSignUp() {
             <p className="text-center text-base font-medium text-gray-500">
               Already have an account
               <a href="/#" className="text-indigo-600 hover:text-indigo-500">
-                <Link to="/signin">Sign in</Link>
+                <Link to="/signin-recruiter">Sign in</Link>
               </a>
             </p>
           </p>

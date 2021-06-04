@@ -13,6 +13,7 @@ import JobSeekerSignIn from "./pages/jobseeker/JobSeekerSignIn";
 import JobSeekerForm from "./pages/jobseeker/JobSeekerForm.jsx";
 import JobDetail from "./pages/jobseeker/JobDetails";
 import GuestMainPage from "./pages/GuestMainPage";
+import SignInRolePage from "./pages/SignInRolePage";
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/job-detail">
             <JobDetail />
+          </Route>
+          <Route path="/signin">
+            <SignInRolePage />
           </Route>
           <Route path="/">
             <GuestMainPage />

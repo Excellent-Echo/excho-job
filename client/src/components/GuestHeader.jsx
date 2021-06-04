@@ -1,9 +1,27 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { userLogout } from "../redux/user/login/userLoginAction";
 
 export default function GuestHeader() {
+  const dataUser = useSelector((state) => state.userLogin);
+  console.log("data user", dataUser);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const logoutSuccess = () => {
+    console.log("logout");
+    dispatch(userLogout(history));
+    localStorage.removeItem("accessToken");
+
+    alert("logout");
+    console.log("slesai logoout", dataUser);
+  };
+
   return (
     <Popover className="relative bg-white sticky top-0">
       {({ open }) => (
@@ -30,43 +48,55 @@ export default function GuestHeader() {
               </div>
 
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                {/* <Link to="/signin">
+                {!localStorage.getItem("accessToken") ? (
+                  <>
+                    <Link to="/signin">
+                      <a
+                        href="/#"
+                        className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                      >
+                        Sign in
+                      </a>
+                    </Link>
+                    <Link to="/signup-jobseeker">
+                      <a
+                        href="/#"
+                        className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                      >
+                        Sign up
+                      </a>
+                    </Link>
+
+                    <a
+                      href="/#"
+                      className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border rounded-xl shadow-sm text-base font-medium text-indigo-600 shadow focus:shadow-inner"
+                    >
+                      <Link to="/signup-recruiter">For Company</Link>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </a>
+                  </>
+                ) : (
                   <a
                     href="/#"
-                    className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-                  >
-                    Sign in
-                  </a>
-                </Link> */}
-                <Link to="/signup-jobseeker">
-                  <a
-                    href="/#"
+                    onClick={() => logoutSuccess()}
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                   >
-                    Sign up
+                    Log out
                   </a>
-                </Link>
-
-                <a
-                  href="/#"
-                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border rounded-xl shadow-sm text-base font-medium text-indigo-600 shadow focus:shadow-inner"
-                >
-                  <Link to="/signup-recruiter">For Company</Link>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </a>
+                )}
               </div>
             </div>
           </div>
