@@ -1,9 +1,27 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { userLogout } from "../redux/user/login/userLoginAction";
 
 export default function GuestHeader() {
+  const dataUser = useSelector((state) => state.userLogin);
+  console.log("data user", dataUser);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const logoutSuccess = () => {
+    console.log("logout");
+    dispatch(userLogout(history));
+    localStorage.removeItem("accessToken");
+
+    alert("logout");
+    console.log("slesai logoout", dataUser);
+  };
+
   return (
     <Popover className="relative bg-white sticky top-0">
       {({ open }) => (
@@ -30,6 +48,13 @@ export default function GuestHeader() {
               </div>
 
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                <a
+                  href="/#"
+                  onClick={() => logoutSuccess()}
+                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-xl shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                >
+                  Log out
+                </a>
                 {/* <Link to="/signin">
                   <a
                     href="/#"
