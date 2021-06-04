@@ -23,22 +23,21 @@ export default function MainPage() {
   return (
     <>
       <Header />
-      <div className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+
+      <div className="mt-10 mx-auto px-4 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <div className="sm:text-center lg:text-left">
-          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block xl:inline">Get the dream</span>{" "}
-            <span className="block text-indigo-600 xl:inline">
-              job you want
-            </span>
+          <h1 className="text-gray-900 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+            <span className="xl:inline">Get your</span>{" "}
+            <span className="text-indigo-600 xl:inline">dream job</span>
           </h1>
-          <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+          <p className="mt-3 text-gray-500 text-base sm:mt-5 sm:mx-auto sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
             {/*Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui*/}
             {/*lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat*/}
             {/*fugiat aliqua.*/}
           </p>
 
-          <div className="mt-5 mb-20 sm:mt-8 grid grid-cols-12 gap-6">
-            <div className="md:mt-3 sm:mt-0 col-span-12 sm:col-span-3">
+          <div className="grid gap-6 grid-cols-12 mb-20 mt-5 sm:mt-8">
+            <div className="col-span-12 sm:col-span-3 sm:mt-0 md:mt-3">
               <label htmlFor="search_job" className="sr-only">
                 Search Job
               </label>
@@ -46,15 +45,15 @@ export default function MainPage() {
                 type="text"
                 name="search_job"
                 id="search_job"
-                className="w-full font-medium rounded-lg text-indigo-600 bg-white md:py-4 md:text-lg md:px-10"
+                className="w-full text-indigo-600 font-medium bg-white rounded-lg md:px-10 md:py-4 md:text-lg"
                 placeholder="Search job"
               />
             </div>
 
-            <div className="md:mt-3 sm:mt-0 col-span-12 sm:col-span-3">
+            <div className="col-span-12 sm:col-span-3 sm:mt-0 md:mt-3">
               <label
                 htmlFor="country"
-                className="sr-only block text-sm font-medium text-gray-700"
+                className="block text-gray-700 text-sm font-medium sr-only"
               >
                 Location
               </label>
@@ -62,16 +61,16 @@ export default function MainPage() {
                 id="country"
                 name="country"
                 autoComplete="country"
-                className="w-full font-medium rounded-lg text-indigo-600 bg-white md:py-4 md:text-lg md:px-10"
+                className="w-full text-indigo-600 font-medium bg-white rounded-lg md:px-10 md:py-4 md:text-lg"
               >
                 <option>Location</option>
               </select>
             </div>
 
-            <div className="md:mt-3 sm:mt-0 col-span-12 sm:col-span-3">
+            <div className="col-span-12 sm:col-span-3 sm:mt-0 md:mt-3">
               <label
                 htmlFor="country"
-                className="sr-only block text-sm font-medium text-gray-700"
+                className="block text-gray-700 text-sm font-medium sr-only"
               >
                 Type
               </label>
@@ -79,16 +78,16 @@ export default function MainPage() {
                 id="country"
                 name="country"
                 autoComplete="country"
-                className="w-full font-medium rounded-lg text-indigo-600 bg-white md:py-4 md:text-lg md:px-10"
+                className="w-full text-indigo-600 font-medium bg-white rounded-lg md:px-10 md:py-4 md:text-lg"
               >
                 <option>Type</option>
               </select>
             </div>
 
-            <div className="md:mt-3 sm:mt-0 col-span-12 sm:col-span-3">
+            <div className="col-span-12 sm:col-span-3 sm:mt-0 md:mt-3">
               <label
                 htmlFor="country"
-                className="sr-only block text-sm font-medium text-gray-700"
+                className="block text-gray-700 text-sm font-medium sr-only"
               >
                 Category
               </label>
@@ -96,7 +95,7 @@ export default function MainPage() {
                 id="country"
                 name="country"
                 autoComplete="country"
-                className="w-full font-medium rounded-lg text-indigo-600 bg-white md:py-4 md:text-lg md:px-10"
+                className="w-full text-indigo-600 font-medium bg-white rounded-lg md:px-10 md:py-4 md:text-lg"
               >
                 <option>Category</option>
               </select>
@@ -104,19 +103,21 @@ export default function MainPage() {
           </div>
         </div>
 
-        <main className="grid grid-cols-12 gap-6 my-10">
+        <main className="grid gap-6 grid-cols-12 my-10">
           {loading ? (
-            <h1>Loading</h1>
+            <h1 className="col-span-12 text-center text-3xl">
+              <i className="bx bx-loader-circle bx-spin"></i>Loading
+            </h1>
           ) : error ? (
             <h1>Error</h1>
           ) : (
             <>
               {listJob.map((job) => (
                 <React.Fragment>
-                  <div className="hover:shadow-lg duration-300 border-2 h-60 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 sm:w-full flex flex-col p-4">
+                  <div className="flex flex-col col-span-12 p-4 h-60 border-2 rounded-xl hover:shadow-lg duration-300 sm:col-span-6 sm:w-full lg:col-span-4">
                     <div className="flex justify-center">
                       <img
-                        className="h-16 mr-4"
+                        className="mr-4 h-16"
                         src="https://www.crowde.co/static/images/logo-color.png"
                         alt=""
                       />
@@ -129,7 +130,7 @@ export default function MainPage() {
                       <span className="">
                         <span
                           onClick={() => handleClick(job.id)}
-                          className="font-medium text-blue-900"
+                          className="text-blue-900 font-medium"
                         >
                           See Details
                         </span>
@@ -143,8 +144,8 @@ export default function MainPage() {
         </main>
 
         {/*pagination*/}
-        <div className="bg-white px-4 py-3 flex items-center justify-center border-t border-gray-200 sm:px-6">
-          <div className="sm:flex-1 sm:flex sm:items-center sm:justify-center">
+        <div className="flex items-center justify-center px-4 py-3 bg-white border-t border-gray-200 sm:px-6">
+          <div className="sm:flex sm:flex-1 sm:items-center sm:justify-center">
             <div>
               <nav
                 className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
@@ -152,11 +153,11 @@ export default function MainPage() {
               >
                 <a
                   href="/#"
-                  className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  className="relative inline-flex items-center px-2 py-2 text-gray-500 text-sm font-medium hover:bg-gray-50 bg-white border border-gray-300 rounded-l-md"
                 >
                   <span className="sr-only">Previous</span>
                   <svg
-                    className="h-5 w-5"
+                    className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -172,51 +173,51 @@ export default function MainPage() {
                 <a
                   href="/#"
                   aria-current="page"
-                  className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                  className="relative z-10 inline-flex items-center px-4 py-2 text-indigo-600 text-sm font-medium bg-indigo-50 border border-indigo-500"
                 >
                   1
                 </a>
                 <a
                   href="/#"
-                  className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                  className="relative inline-flex items-center px-4 py-2 text-gray-500 text-sm font-medium hover:bg-gray-50 bg-white border border-gray-300"
                 >
                   2
                 </a>
                 <a
                   href="/#"
-                  className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
+                  className="relative hidden items-center px-4 py-2 text-gray-500 text-sm font-medium hover:bg-gray-50 bg-white border border-gray-300 md:inline-flex"
                 >
                   3
                 </a>
-                <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                <span className="relative inline-flex items-center px-4 py-2 text-gray-700 text-sm font-medium bg-white border border-gray-300">
                   ...
                 </span>
                 <a
                   href="/#"
-                  className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
+                  className="relative hidden items-center px-4 py-2 text-gray-500 text-sm font-medium hover:bg-gray-50 bg-white border border-gray-300 md:inline-flex"
                 >
                   8
                 </a>
                 <a
                   href="/#"
-                  className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                  className="relative inline-flex items-center px-4 py-2 text-gray-500 text-sm font-medium hover:bg-gray-50 bg-white border border-gray-300"
                 >
                   9
                 </a>
                 <a
                   href="/#"
-                  className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                  className="relative inline-flex items-center px-4 py-2 text-gray-500 text-sm font-medium hover:bg-gray-50 bg-white border border-gray-300"
                 >
                   10
                 </a>
                 <a
                   href="/#"
-                  className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                  className="relative inline-flex items-center px-2 py-2 text-gray-500 text-sm font-medium hover:bg-gray-50 bg-white border border-gray-300 rounded-r-md"
                 >
                   <span className="sr-only">Next</span>
 
                   <svg
-                    className="h-5 w-5"
+                    className="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"

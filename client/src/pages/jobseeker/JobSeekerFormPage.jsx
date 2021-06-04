@@ -4,48 +4,49 @@ export default function JobSeekerFormPage() {
   return (
     <>
       <Header />
+
       <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Job Seeker Form</h1>
+        <div className="mx-auto px-4 py-6 max-w-7xl sm:px-6 lg:px-8">
+          <h1 className="text-gray-900 text-3xl font-bold">Job Seeker Form</h1>
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto py-6 max-w-7xl sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <div>
-            <div className="md:grid md:grid-cols-3 md:gap-6">
+            <div className="md:grid md:gap-6 md:grid-cols-3">
               <div className="md:col-span-1">
                 <div className="px-4 sm:px-0">
-                  <h3 className="text-lg font-medium leading-6 text-gray-900">
+                  <h3 className="text-gray-900 text-lg font-medium leading-6">
                     Profile
                   </h3>
-                  <p className="mt-1 text-sm text-gray-600">
+                  <p className="mt-1 text-gray-600 text-sm">
                     This information will be displayed publicly so be careful
                     what you share.
                   </p>
                 </div>
               </div>
-              <div className="mt-5 md:mt-0 md:col-span-2">
+              <div className="mt-5 md:col-span-2 md:mt-0">
                 <form action="/#" method="POST">
                   <div className="shadow sm:rounded-md sm:overflow-hidden">
                     <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
-                      <div className="grid grid-cols-3 gap-6">
+                      <div className="grid gap-6 grid-cols-3">
                         <div className="col-span-3 sm:col-span-2">
                           <label
                             htmlFor="company_website"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Website
                           </label>
-                          <div className="mt-1 flex rounded-md shadow-sm">
-                            <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                          <div className="flex mt-1 rounded-md shadow-sm">
+                            <span className="inline-flex items-center px-3 text-gray-500 text-sm bg-gray-50 border border-r-0 border-gray-300 rounded-l-md">
                               https://
                             </span>
                             <input
                               type="text"
                               name="company_website"
                               id="company_website"
-                              className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                              className="block flex-1 w-full border-gray-300 focus:border-indigo-500 rounded-none rounded-r-md focus:ring-indigo-500 sm:text-sm"
                               placeholder="www.example.com"
                             />
                           </div>
@@ -55,7 +56,7 @@ export default function JobSeekerFormPage() {
                       <div>
                         <label
                           htmlFor="about"
-                          className="block text-sm font-medium text-gray-700"
+                          className="block text-gray-700 text-sm font-medium"
                         >
                           About
                         </label>
@@ -64,25 +65,25 @@ export default function JobSeekerFormPage() {
                             id="about"
                             name="about"
                             rows={3}
-                            className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                             placeholder="you@example.com"
                             defaultValue={""}
                           />
                         </div>
-                        <p className="mt-2 text-sm text-gray-500">
+                        <p className="mt-2 text-gray-500 text-sm">
                           Brief description for your profile. URLs are
                           hyperlinked.
                         </p>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label className="block text-gray-700 text-sm font-medium">
                           Photo
                         </label>
-                        <div className="mt-1 flex items-center">
-                          <span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                        <div className="flex items-center mt-1">
+                          <span className="inline-block w-12 h-12 bg-gray-100 rounded-full overflow-hidden">
                             <svg
-                              className="h-full w-full text-gray-300"
+                              className="w-full h-full text-gray-300"
                               fill="currentColor"
                               viewBox="0 0 24 24"
                             >
@@ -91,7 +92,7 @@ export default function JobSeekerFormPage() {
                           </span>
                           <button
                             type="button"
-                            className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="ml-5 px-3 py-2 text-gray-700 text-sm font-medium leading-4 hover:bg-gray-50 bg-white border border-gray-300 rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2"
                           >
                             Change
                           </button>
@@ -99,13 +100,13 @@ export default function JobSeekerFormPage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700">
+                        <label className="block text-gray-700 text-sm font-medium">
                           Cover photo
                         </label>
-                        <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                          <div className="space-y-1 text-center">
+                        <div className="flex justify-center mt-1 pb-6 pt-5 px-6 border-2 border-dashed border-gray-300 rounded-md">
+                          <div className="text-center space-y-1">
                             <svg
-                              className="mx-auto h-12 w-12 text-gray-400"
+                              className="mx-auto w-12 h-12 text-gray-400"
                               stroke="currentColor"
                               fill="none"
                               viewBox="0 0 48 48"
@@ -118,10 +119,10 @@ export default function JobSeekerFormPage() {
                                 strokeLinejoin="round"
                               />
                             </svg>
-                            <div className="flex text-sm text-gray-600">
+                            <div className="flex text-gray-600 text-sm">
                               <label
                                 htmlFor="file-upload"
-                                className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                className="relative hover:text-indigo-500 text-indigo-600 font-medium bg-white rounded-md focus-within:outline-none cursor-pointer focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-2"
                               >
                                 <span>Upload a file</span>
                                 <input
@@ -133,17 +134,17 @@ export default function JobSeekerFormPage() {
                               </label>
                               <p className="pl-1">or drag and drop</p>
                             </div>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-gray-500 text-xs">
                               PNG, JPG, GIF up to 10MB
                             </p>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <div className="px-4 py-3 text-right bg-gray-50 sm:px-6">
                       <button
                         type="submit"
-                        className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="inline-flex justify-center px-4 py-2 text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700 border border-transparent rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2"
                       >
                         Save
                       </button>
@@ -161,26 +162,26 @@ export default function JobSeekerFormPage() {
           </div>
 
           <div className="mt-10 sm:mt-0">
-            <div className="md:grid md:grid-cols-3 md:gap-6">
+            <div className="md:grid md:gap-6 md:grid-cols-3">
               <div className="md:col-span-1">
                 <div className="px-4 sm:px-0">
-                  <h3 className="text-lg font-medium leading-6 text-gray-900">
+                  <h3 className="text-gray-900 text-lg font-medium leading-6">
                     Personal Information
                   </h3>
-                  <p className="mt-1 text-sm text-gray-600">
+                  <p className="mt-1 text-gray-600 text-sm">
                     Use a permanent address where you can receive mail.
                   </p>
                 </div>
               </div>
-              <div className="mt-5 md:mt-0 md:col-span-2">
+              <div className="mt-5 md:col-span-2 md:mt-0">
                 <form action="/#" method="POST">
                   <div className="shadow overflow-hidden sm:rounded-md">
                     <div className="px-4 py-5 bg-white sm:p-6">
-                      <div className="grid grid-cols-6 gap-6">
+                      <div className="grid gap-6 grid-cols-6">
                         <div className="col-span-6 sm:col-span-3">
                           <label
                             htmlFor="full_name"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Full name
                           </label>
@@ -189,14 +190,14 @@ export default function JobSeekerFormPage() {
                             name="full_name"
                             id="full_name"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                           <label
                             htmlFor="gender"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Gender
                           </label>
@@ -204,7 +205,7 @@ export default function JobSeekerFormPage() {
                             id="gender"
                             name="gender"
                             autoComplete="gender"
-                            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            className="block mt-1 px-3 py-2 w-full bg-white border border-gray-300 focus:border-indigo-500 rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 sm:text-sm"
                           >
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -214,7 +215,7 @@ export default function JobSeekerFormPage() {
                         <div className="col-span-6 sm:col-span-3">
                           <label
                             htmlFor="email_address"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Email address
                           </label>
@@ -223,14 +224,14 @@ export default function JobSeekerFormPage() {
                             name="email_address"
                             id="email_address"
                             autoComplete="email"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                           <label
                             htmlFor="number_phone"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Number Phone
                           </label>
@@ -239,14 +240,14 @@ export default function JobSeekerFormPage() {
                             name="number_phone"
                             id="number_phone"
                             autoComplete="phone"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                           <label
                             htmlFor="country"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Country / Region
                           </label>
@@ -254,7 +255,7 @@ export default function JobSeekerFormPage() {
                             id="country"
                             name="country"
                             autoComplete="country"
-                            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            className="block mt-1 px-3 py-2 w-full bg-white border border-gray-300 focus:border-indigo-500 rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 sm:text-sm"
                           >
                             <option value="Afganistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
@@ -586,7 +587,7 @@ export default function JobSeekerFormPage() {
                         <div className="col-span-6 sm:col-span-3">
                           <label
                             htmlFor="street_address"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Street address
                           </label>
@@ -595,14 +596,14 @@ export default function JobSeekerFormPage() {
                             name="street_address"
                             id="street_address"
                             autoComplete="street-address"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="city"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             City
                           </label>
@@ -610,14 +611,14 @@ export default function JobSeekerFormPage() {
                             type="text"
                             name="city"
                             id="city"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                           <label
                             htmlFor="state"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             State / Province
                           </label>
@@ -625,14 +626,14 @@ export default function JobSeekerFormPage() {
                             type="text"
                             name="state"
                             id="state"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                           <label
                             htmlFor="postal_code"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             ZIP / Postal
                           </label>
@@ -641,15 +642,15 @@ export default function JobSeekerFormPage() {
                             name="postal_code"
                             id="postal_code"
                             autoComplete="postal-code"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
                       </div>
                     </div>
-                    <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <div className="px-4 py-3 text-right bg-gray-50 sm:px-6">
                       <button
                         type="submit"
-                        className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="inline-flex justify-center px-4 py-2 text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700 border border-transparent rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2"
                       >
                         Save
                       </button>
@@ -667,23 +668,23 @@ export default function JobSeekerFormPage() {
           </div>
 
           <div className="mt-10 sm:mt-0">
-            <div className="md:grid md:grid-cols-3 md:gap-6">
+            <div className="md:grid md:gap-6 md:grid-cols-3">
               <div className="md:col-span-1">
                 <div className="px-4 sm:px-0">
-                  <h3 className="text-lg font-medium leading-6 text-gray-900">
+                  <h3 className="text-gray-900 text-lg font-medium leading-6">
                     Notifications
                   </h3>
-                  <p className="mt-1 text-sm text-gray-600">
+                  <p className="mt-1 text-gray-600 text-sm">
                     Decide which communications you'd like to receive and how.
                   </p>
                 </div>
               </div>
-              <div className="mt-5 md:mt-0 md:col-span-2">
+              <div className="mt-5 md:col-span-2 md:mt-0">
                 <form action="/#" method="POST">
                   <div className="shadow overflow-hidden sm:rounded-md">
                     <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                       <fieldset>
-                        <legend className="text-base font-medium text-gray-900">
+                        <legend className="text-gray-900 text-base font-medium">
                           By Email
                         </legend>
                         <div className="mt-4 space-y-4">
@@ -693,13 +694,13 @@ export default function JobSeekerFormPage() {
                                 id="comments"
                                 name="comments"
                                 type="checkbox"
-                                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                               />
                             </div>
                             <div className="ml-3 text-sm">
                               <label
                                 htmlFor="comments"
-                                className="font-medium text-gray-700"
+                                className="text-gray-700 font-medium"
                               >
                                 Comments
                               </label>
@@ -715,13 +716,13 @@ export default function JobSeekerFormPage() {
                                 id="candidates"
                                 name="candidates"
                                 type="checkbox"
-                                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                               />
                             </div>
                             <div className="ml-3 text-sm">
                               <label
                                 htmlFor="candidates"
-                                className="font-medium text-gray-700"
+                                className="text-gray-700 font-medium"
                               >
                                 Candidates
                               </label>
@@ -736,13 +737,13 @@ export default function JobSeekerFormPage() {
                                 id="offers"
                                 name="offers"
                                 type="checkbox"
-                                className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                               />
                             </div>
                             <div className="ml-3 text-sm">
                               <label
                                 htmlFor="offers"
-                                className="font-medium text-gray-700"
+                                className="text-gray-700 font-medium"
                               >
                                 Offers
                               </label>
@@ -756,10 +757,10 @@ export default function JobSeekerFormPage() {
                       </fieldset>
                       <fieldset>
                         <div>
-                          <legend className="text-base font-medium text-gray-900">
+                          <legend className="text-gray-900 text-base font-medium">
                             Push Notifications
                           </legend>
-                          <p className="text-sm text-gray-500">
+                          <p className="text-gray-500 text-sm">
                             These are delivered via SMS to your mobile phone.
                           </p>
                         </div>
@@ -769,11 +770,11 @@ export default function JobSeekerFormPage() {
                               id="push_everything"
                               name="push_notifications"
                               type="radio"
-                              className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                              className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                             />
                             <label
                               htmlFor="push_everything"
-                              className="ml-3 block text-sm font-medium text-gray-700"
+                              className="block ml-3 text-gray-700 text-sm font-medium"
                             >
                               Everything
                             </label>
@@ -783,11 +784,11 @@ export default function JobSeekerFormPage() {
                               id="push_email"
                               name="push_notifications"
                               type="radio"
-                              className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                              className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                             />
                             <label
                               htmlFor="push_email"
-                              className="ml-3 block text-sm font-medium text-gray-700"
+                              className="block ml-3 text-gray-700 text-sm font-medium"
                             >
                               Same as email
                             </label>
@@ -797,11 +798,11 @@ export default function JobSeekerFormPage() {
                               id="push_nothing"
                               name="push_notifications"
                               type="radio"
-                              className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                              className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                             />
                             <label
                               htmlFor="push_nothing"
-                              className="ml-3 block text-sm font-medium text-gray-700"
+                              className="block ml-3 text-gray-700 text-sm font-medium"
                             >
                               No push notifications
                             </label>
@@ -809,10 +810,10 @@ export default function JobSeekerFormPage() {
                         </div>
                       </fieldset>
                     </div>
-                    <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <div className="px-4 py-3 text-right bg-gray-50 sm:px-6">
                       <button
                         type="submit"
-                        className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="inline-flex justify-center px-4 py-2 text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700 border border-transparent rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2"
                       >
                         Save
                       </button>
