@@ -1,52 +1,60 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// components
-import GuestHeader from "./components/GuestHeader";
-
 // pages
-import RecruiterSignUp from "./pages/recruiter/RecruiterSignUp";
-import RecruiterSignIn from "./pages/recruiter/RecruiterSignIn";
-import RecruiterForm from "./pages/recruiter/RecruiterForm";
-import JobSeekerSignUp from "./pages/jobseeker/JobSeekerSignUp";
-import JobSeekerSignIn from "./pages/jobseeker/JobSeekerSignIn";
-import JobSeekerForm from "./pages/jobseeker/JobSeekerForm.jsx";
-import JobDetail from "./pages/jobseeker/JobDetails";
-import GuestMainPage from "./pages/GuestMainPage";
+import RecruiterSignUpPage from "./pages/recruiter/RecruiterSignUpPage";
+import RecruiterSignInPage from "./pages/recruiter/RecruiterSignInPage";
+import RecruiterFormPage from "./pages/recruiter/RecruiterFormPage";
+import JobSeekerSignUpPage from "./pages/jobseeker/JobSeekerSignUpPage";
+import JobSeekerSignIn from "./pages/jobseeker/JobSeekerSignInPage";
+import JobSeekerFormPage from "./pages/jobseeker/JobSeekerFormPage.jsx";
+import JobDetail from "./pages/jobseeker/JobDetailsPage";
+import MainPage from "./pages/MainPage";
 import SignInRolePage from "./pages/SignInRolePage";
+import SignUpRolePage from "./pages/SignUpRolePage";
 
 function App() {
   return (
     <Router>
       <div>
-        <GuestHeader />
         <Switch>
+          {/*sign up*/}
+          <Route path="/signup">
+            <SignUpRolePage />
+          </Route>
           <Route path="/signup-recruiter">
-            <RecruiterSignUp />
-          </Route>
-          <Route path="/signin-recruiter">
-            <RecruiterSignIn />
-          </Route>
-          <Route path="/form-recruiter">
-            <RecruiterForm />
+            <RecruiterSignUpPage />
           </Route>
           <Route path="/signup-jobseeker">
-            <JobSeekerSignUp />
+            <JobSeekerSignUpPage />
+          </Route>
+          {/*sign up*/}
+
+          {/*sign in*/}
+          <Route path="/signin">
+            <SignInRolePage />
+          </Route>
+          <Route path="/signin-recruiter">
+            <RecruiterSignInPage />
           </Route>
           <Route path="/signin-jobseeker">
             <JobSeekerSignIn />
           </Route>
+          {/*sign in*/}
+
+          <Route path="/form-recruiter">
+            <RecruiterFormPage />
+          </Route>
+
           <Route path="/form-jobseeker">
-            <JobSeekerForm />
+            <JobSeekerFormPage />
           </Route>
           <Route path="/job-detail/:id">
             <JobDetail />
           </Route>
-          <Route path="/signin">
-            <SignInRolePage />
-          </Route>
+
           <Route path="/">
-            <GuestMainPage />
+            <MainPage />
           </Route>
         </Switch>
       </div>
