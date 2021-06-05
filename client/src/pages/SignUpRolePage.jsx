@@ -16,13 +16,13 @@ export default function SignUpRolePage() {
           <div className="flex my-8">
             <Link
               className="text-md flex justify-center px-6 py-4 w-full text-blue-500 hover:text-white font-medium hover:bg-blue-500 border border-gray-300 rounded-l-lg"
-              to="/signin-jobseeker"
+              to="/signup-jobseeker"
             >
               Job Seeker
             </Link>
             <Link
               className="text-md flex justify-center px-6 py-4 w-full text-blue-500 hover:text-white font-medium hover:bg-blue-500 border border-gray-300 rounded-r-lg"
-              to="/signin-recruiter"
+              to="/signup-recruiter"
             >
               Recruiter
             </Link>
