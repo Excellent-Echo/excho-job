@@ -12,13 +12,14 @@ import JobDetail from "./pages/jobseeker/JobDetailsPage";
 import MainPage from "./pages/MainPage";
 import SignInRolePage from "./pages/SignInRolePage";
 import SignUpRolePage from "./pages/SignUpRolePage";
+import QuestionsPage from "./pages/QuestionsPage";
+import DashPage from "./pages/recruiter/DashPage";
 
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          {/*sign up*/}
           <Route path="/signup">
             <SignUpRolePage />
           </Route>
@@ -28,9 +29,7 @@ function App() {
           <Route path="/signup-jobseeker">
             <JobSeekerSignUpPage />
           </Route>
-          {/*sign up*/}
 
-          {/*sign in*/}
           <Route path="/signin">
             <SignInRolePage />
           </Route>
@@ -40,14 +39,19 @@ function App() {
           <Route path="/signin-jobseeker">
             <JobSeekerSignIn />
           </Route>
-          {/*sign in*/}
 
           <Route path="/form-recruiter">
             <RecruiterFormPage />
           </Route>
-
           <Route path="/form-jobseeker">
             <JobSeekerFormPage />
+          </Route>
+
+          <Route path="/question">
+            <QuestionsPage />
+          </Route>
+          <Route path="/dash">
+            <DashPage />
           </Route>
           <Route path="/job-detail/:id">
             <JobDetail />

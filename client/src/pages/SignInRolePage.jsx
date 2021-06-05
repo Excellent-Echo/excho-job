@@ -16,13 +16,13 @@ export default function SignInRolePage() {
 
           <div className="flex my-8">
             <Link
-              className="flex justify-center mx-4 px-6 py-4 w-full text-white text-sm font-medium bg-blue-700 hover:bg-blue-800 border border-transparent rounded-md focus:outline-none focus:ring-blue-500 focus:ring-offset-2 focus:ring-2"
+              className="text-md flex justify-center px-6 py-4 w-full text-blue-500 hover:text-white font-medium hover:bg-blue-500 border border-gray-300 rounded-l-lg"
               to="/signin-jobseeker"
             >
               Job Seeker
             </Link>
             <Link
-              className="flex justify-center mx-4 px-6 py-4 w-full text-white text-sm font-medium bg-blue-700 hover:bg-blue-800 border border-transparent rounded-md focus:outline-none focus:ring-blue-500 focus:ring-offset-2 focus:ring-2"
+              className="text-md flex justify-center px-6 py-4 w-full text-blue-500 hover:text-white font-medium hover:bg-blue-500 border border-gray-300 rounded-r-lg"
               to="/signin-recruiter"
             >
               Recruiter
