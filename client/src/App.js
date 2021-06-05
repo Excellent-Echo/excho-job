@@ -1,63 +1,62 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// pages
 import RecruiterSignUpPage from "./pages/recruiter/RecruiterSignUpPage";
-import RecruiterSignInPage from "./pages/recruiter/RecruiterSignInPage";
 import RecruiterFormPage from "./pages/recruiter/RecruiterFormPage";
 import JobSeekerSignUpPage from "./pages/jobseeker/JobSeekerSignUpPage";
-import JobSeekerSignIn from "./pages/jobseeker/JobSeekerSignInPage";
 import JobSeekerFormPage from "./pages/jobseeker/JobSeekerFormPage.jsx";
 import JobDetail from "./pages/jobseeker/JobDetailsPage";
 import MainPage from "./pages/MainPage";
 import SignInRolePage from "./pages/SignInRolePage";
 import SignUpRolePage from "./pages/SignUpRolePage";
-import QuestionsPage from "./pages/QuestionsPage";
-import DashPage from "./pages/recruiter/DashPage";
+import QuestionsPage from "./pages/recruiter/QuestionsPage";
+import RecruiterDashboardPage from "./pages/recruiter/RecruiterDashboardPage";
+import RecruiterSignInPage from "./pages/recruiter/RecruiterSignInPage";
+import JobSeekerSignInPage from "./pages/jobseeker/JobSeekerSignInPage";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div>
         <Switch>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignUpRolePage />
           </Route>
-          <Route path="/signup-recruiter">
+          <Route exact path="/signup-recruiter">
             <RecruiterSignUpPage />
           </Route>
-          <Route path="/signup-jobseeker">
+          <Route exact path="/signup-jobseeker">
             <JobSeekerSignUpPage />
           </Route>
 
-          <Route path="/signin">
+          <Route exact path="/signin">
             <SignInRolePage />
-          </Route>
-          <Route path="/signin-recruiter">
-            <RecruiterSignInPage />
-          </Route>
-          <Route path="/signin-jobseeker">
-            <JobSeekerSignIn />
+            <Route exact path="/signin-recruiter">
+              <RecruiterSignInPage />
+            </Route>
+            <Route exact path="/signin-jobseeker">
+              <JobSeekerSignInPage />
+            </Route>
           </Route>
 
-          <Route path="/form-recruiter">
+          <Route exact path="/form-recruiter">
             <RecruiterFormPage />
           </Route>
-          <Route path="/form-jobseeker">
+          <Route exact path="/form-jobseeker">
             <JobSeekerFormPage />
           </Route>
 
-          <Route path="/question">
+          <Route exact path="/question">
             <QuestionsPage />
           </Route>
-          <Route path="/dash">
-            <DashPage />
+          <Route exact path="/recruiter-dashboard">
+            <RecruiterDashboardPage />
           </Route>
-          <Route path="/job-detail/:id">
+          <Route exact path="/job-detail/:id">
             <JobDetail />
           </Route>
 
-          <Route path="/">
+          <Route exact path="/">
             <MainPage />
           </Route>
         </Switch>
@@ -65,5 +64,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
