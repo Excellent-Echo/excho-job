@@ -15,7 +15,7 @@ const people = [
   },
 ];
 
-export default function DashPage() {
+export default function RecruiterDashboardPage() {
   return (
     <>
       <Header />
