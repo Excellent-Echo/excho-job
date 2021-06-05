@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getJobById } from "../../redux/jobs/jobAction";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
-// import UserHeader from "../../components/UserHeader";
 
-export default function JobDetails() {
+export default function JobDetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -46,9 +45,9 @@ export default function JobDetails() {
         {/*job*/}
         <div className="w-8/12">
           {/*job banner*/}
-          <div className="border rounded-xl p-10 flex">
+          <div className="flex p-10 border rounded-xl">
             {/*company's logo*/}
-            <div className="flex flex-1 justify-center items-center">
+            <div className="flex flex-1 items-center justify-center">
               <img
                 className="h-16"
                 src="https://www.crowde.co/static/images/logo-color.png"
@@ -58,7 +57,7 @@ export default function JobDetails() {
             {/*company's logo*/}
 
             {/*brief job desc*/}
-            <div className="flex-1 flex justify-center items-center">
+            <div className="flex flex-1 items-center justify-center">
               <div className="flex flex-col">
                 {/*job position*/}
                 <span className="mb-2 text-2xl font-medium">
@@ -67,11 +66,11 @@ export default function JobDetails() {
                 {/*job position*/}
 
                 {/*Company location*/}
-                <span className="mb-2 text-lg ">{jobDetail.company_name}</span>
+                <span className="mb-2 text-lg">{jobDetail.company_name}</span>
                 {/*Company location*/}
 
                 {/*salary*/}
-                <span className="mb-2 text-lg ">
+                <span className="mb-2 text-lg">
                   {new Intl.NumberFormat("en-ID", {
                     style: "currency",
                     currency: "IDR",
@@ -79,7 +78,7 @@ export default function JobDetails() {
                   per month
                 </span>
                 {/*salary*/}
-                <span className="mb-2 text-lg ">{jobDetail.category}</span>
+                <span className="mb-2 text-lg">{jobDetail.category}</span>
                 {/*info*/}
                 {/* <span className="mb-2 text-lg ">
                   <span className="text-green-600">26 minutes ago</span> ◾{" "}
@@ -88,7 +87,7 @@ export default function JobDetails() {
                 {/*info*/}
 
                 <button
-                  className="border hover:bg-blue-600 rounded-full px-4 py-2 font-medium bg-blue-500 text-white"
+                  className="px-4 py-2 text-white font-medium bg-blue-500 hover:bg-blue-600 border rounded-full"
                   onClick={handleClick}
                 >
                   Apply Now
@@ -101,20 +100,20 @@ export default function JobDetails() {
 
           {/*job details*/}
           <div className="ml-8 w-9/12">
-            <p className="mt-10 mb-6">
+            <p className="mb-6 mt-10">
               The job poster from {jobDetail.company_name}
             </p>
             <div className="">
-              <div className="flex mb-6 items-center flex-1">
+              <div className="flex flex-1 items-center mb-6">
                 <img
-                  className="h-16 w-16 rounded-full m-2"
+                  className="m-2 w-16 h-16 rounded-full"
                   src="https://cdn.techinasia.com/data/images/08582062e8379feccc7f8b8288181804.png"
                   alt=""
                 />
-                <div className="flex flex-col ">
-                  <p className="font-medium flex-1">{jobDetail.company_name}</p>
-                  <p className=" flex-1">{jobDetail.job_tittle}</p>
-                  <p className=" flex-1">
+                <div className="flex flex-col">
+                  <p className="flex-1 font-medium">{jobDetail.company_name}</p>
+                  <p className="flex-1">{jobDetail.job_tittle}</p>
+                  <p className="flex-1">
                     {jobDetail.address}, {jobDetail.location}
                   </p>
                 </div>
@@ -122,36 +121,36 @@ export default function JobDetails() {
 
               <div className="flex-1">
                 <div className="mb-6">
-                  <p className="font-medium mb-4">Job Description</p>
-                  <ul className="list-disc list-inside">
+                  <p className="mb-4 font-medium">Job Description</p>
+                  <ul className="list-inside list-disc">
                     <li>{jobDetail.job_description}</li>
                   </ul>
                 </div>
 
                 <div className="mb-6">
-                  <p className="font-medium mb-4">Type</p>
-                  <ul className="list-disc list-inside">
+                  <p className="mb-4 font-medium">Type</p>
+                  <ul className="list-inside list-disc">
                     <li>{jobDetail.type}</li>
                   </ul>
                 </div>
 
                 <div className="mb-6">
-                  <p className="font-medium mb-4">Job Description</p>
-                  <ul className="list-disc list-inside">
+                  <p className="mb-4 font-medium">Job Description</p>
+                  <ul className="list-inside list-disc">
                     <li>{jobDetail.job_description}</li>
                   </ul>
                 </div>
 
                 <div className="mb-6">
-                  <p className="font-medium mb-4">Skills</p>
-                  <ul className="list-disc list-inside">
+                  <p className="mb-4 font-medium">Skills</p>
+                  <ul className="list-inside list-disc">
                     <li>{jobDetail.skills}</li>
                   </ul>
                 </div>
 
                 <div className="mb-6">
-                  <p className="font-medium mb-4">Requirements</p>
-                  <ul className="list-disc list-inside">
+                  <p className="mb-4 font-medium">Requirements</p>
+                  <ul className="list-inside list-disc">
                     <li>{jobDetail.requirements}</li>
                   </ul>
                 </div>

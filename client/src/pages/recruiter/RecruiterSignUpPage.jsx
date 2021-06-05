@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import userRegisterAction from "../../redux/user/register/userRegisterAction";
+import SignInText from "../../components/SignInText";
+import ExchoJobIcon from "../../components/ExchoJobIcon";
 
-export default function RecruiterSignUp() {
+export default function RecruiterSignUpPage() {
   const userRegisterData = useSelector((state) => state.userRegister);
 
   const dispatch = useDispatch();
@@ -28,8 +30,8 @@ export default function RecruiterSignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="flex items-center justify-center px-4 py-12 min-h-screen bg-gray-50 select-none sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8">
         {/* <h1>{JSON.stringify(userRegisterData)}</h1> */}
         {/* Error Message */}
         {userRegisterData.errorMessage && (
@@ -44,25 +46,18 @@ export default function RecruiterSignUp() {
         {userRegisterData.successMessage && (
           <p>{userRegisterData.successMessage}</p>
         )}
+
         <div>
-          <img
-            className="mx-auto h-12 w-auto"
-            src="https://res.cloudinary.com/dulqd0xea/image/upload/v1622618507/excho-job/job-seeker-icon-3_mevmq5.png"
-            alt="Excho Job's Icon"
-          />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign up to be recruiter
+          <ExchoJobIcon />
+          <h2 className="mt-6 text-center text-gray-900 text-3xl font-extrabold">
+            <span className="text-yellow-500">Sign up</span> to be recruiter
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-gray-600 text-sm">
             Or
-            <p className="text-center text-base font-medium text-gray-500">
-              Already have an account
-              <a href="/#" className="text-indigo-600 hover:text-indigo-500">
-                <Link to="/signin-recruiter">Sign in</Link>
-              </a>
-            </p>
+            <SignInText />
           </p>
         </div>
+
         <form className="mt-8 space-y-6" onSubmit={handleRegisterSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
@@ -76,7 +71,7 @@ export default function RecruiterSignUp() {
                 onChange={(event) =>
                   dispatch(userRegisterAction.setFullName(event.target.value))
                 }
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="placeholder-gray-500 relative focus:z-10 block px-3 py-2 w-full text-gray-900 text-yellow-500 border border-gray-300 focus:border-indigo-500 rounded-none rounded-t-md focus:outline-none appearance-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Full name"
               />
             </div>
@@ -90,7 +85,7 @@ export default function RecruiterSignUp() {
                 onChange={(event) =>
                   dispatch(userRegisterAction.setEmail(event.target.value))
                 }
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="placeholder-gray-500 relative focus:z-10 block px-3 py-2 w-full text-gray-900 text-yellow-500 border border-gray-300 focus:border-indigo-500 rounded-none focus:outline-none appearance-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -103,7 +98,7 @@ export default function RecruiterSignUp() {
                 onChange={(event) =>
                   dispatch(userRegisterAction.setPosition(event.target.value))
                 }
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="placeholder-gray-500 relative focus:z-10 block px-3 py-2 w-full text-gray-900 text-yellow-500 border border-gray-300 focus:border-indigo-500 rounded-none focus:outline-none appearance-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Position"
               />
             </div>
@@ -116,7 +111,7 @@ export default function RecruiterSignUp() {
                 onChange={(event) =>
                   dispatch(userRegisterAction.setPassword(event.target.value))
                 }
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="placeholder-gray-500 relative focus:z-10 block px-3 py-2 w-full text-gray-900 text-yellow-500 border border-gray-300 focus:border-indigo-500 rounded-b-md rounded-none focus:outline-none appearance-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Password"
               />
             </div>
@@ -126,7 +121,7 @@ export default function RecruiterSignUp() {
               type="submit"
               value={userRegisterData.isLoading ? "Loading..." : "Register"}
               disabled={userRegisterData.isLoading ? true : false}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative flex justify-center px-4 py-2 w-full text-white text-sm font-medium bg-blue-700 hover:bg-blue-800 border border-transparent rounded-md focus:outline-none focus:ring-blue-500 focus:ring-offset-2 focus:ring-2"
             >
               Sign up
             </button>

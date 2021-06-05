@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import formInputAction from "../../redux/formJobs/formJobsAction";
+import Header from "../../components/Header";
 
-// import HeaderUser from "../../components/UserHeader";
-
-export default function RecruiterForm() {
+export default function RecruiterFormPage() {
   const formData = useSelector((state) => state.formJob);
 
   const dispatch = useDispatch();
@@ -35,7 +34,7 @@ export default function RecruiterForm() {
 
   return (
     <div className="select-none">
-      {/* <HeaderUser /> */}
+      <Header />
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-gray-900">Recruiter Form</h1>

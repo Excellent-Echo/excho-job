@@ -169,15 +169,13 @@ const jobFormInput =
         category: category,
       };
 
-     
-
       const jobs = await exchoJobClient({
         method: "POST",
         url: "/jobs/add",
         data: addNewData,
         headers: {
-            Authorization: localStorage.getItem("accessToken"),
-          },
+          Authorization: localStorage.getItem("accessToken"),
+        },
       });
 
       dispatch(setSuccessMessage("Success Post Job"));
