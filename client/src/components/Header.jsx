@@ -98,13 +98,24 @@ export default function Header() {
                 </div>
                 <div className="px-5 py-6 space-y-6">
                   <div>
-                    <Link
-                      className="flex items-center justify-center mb-5 px-4 py-2 w-full text-white text-base font-medium bg-indigo-600 hover:bg-indigo-700 border border-transparent rounded-md shadow-sm"
-                      to="/signup"
-                    >
-                      Sign up
-                    </Link>
-                    <SignInText />
+                    {!localStorage.getItem("accessToken") ? (
+                      <>
+                        <Link
+                          className="flex items-center justify-center mb-5 px-4 py-2 w-full text-white text-base font-medium bg-indigo-600 hover:bg-indigo-700 border border-transparent rounded-md shadow-sm"
+                          to="/signup"
+                        >
+                          Sign up
+                        </Link>
+                        <SignInText />
+                      </>
+                    ) : (
+                      <span
+                        onClick={() => logoutSuccess()}
+                        className="flex items-center justify-center mb-5 px-4 py-2 w-full text-white text-base font-medium bg-indigo-600 hover:bg-indigo-700 border border-transparent rounded-md shadow-sm cursor-pointer"
+                      >
+                        Sign out
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
