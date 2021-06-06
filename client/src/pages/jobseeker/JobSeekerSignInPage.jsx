@@ -1,8 +1,10 @@
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import userLoginAction from "../../redux/user/login/userLoginAction";
+import SignUpText from "../../components/SignUpText";
+import ExchoJobIcon from "../../components/ExchoJobIcon";
 
-export default function RecruiterSignIn() {
+export default function JobSeekerSignInPage() {
   const userLoginData = useSelector((state) => state.userLogin);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -11,7 +13,7 @@ export default function RecruiterSignIn() {
     e.preventDefault();
 
     dispatch(
-      userLoginAction.loginRecruiter(
+      userLoginAction.loginJobSeeker(
         userLoginData.email,
         userLoginData.password,
         history
@@ -20,9 +22,9 @@ export default function RecruiterSignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <h2>{JSON.stringify(userLoginData)}</h2>
+    <div className="flex items-center justify-center px-4 py-12 min-h-screen bg-gray-50 select-none sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8">
+        {/* <h2>{JSON.stringify(userLoginData)}</h2> */}
 
         {/* Error Message */}
         {userLoginData.errorMessage && (
@@ -32,20 +34,18 @@ export default function RecruiterSignIn() {
             })}
           </ul>
         )}
+
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to recruiter
+          <ExchoJobIcon />
+          <h2 className="mt-6 text-center text-gray-900 text-3xl font-extrabold">
+            <span className="text-yellow-500">Sign in</span> to be Job Seeker
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-gray-600 text-sm">
             Or
-            <p className="text-center text-base font-medium text-gray-500">
-              Don't have an account yet?
-              <a href="/#" className="text-indigo-600 hover:text-indigo-500">
-                <Link to="/signup-jobseeker">Sign up</Link>
-              </a>
-            </p>
+            <SignUpText />
           </p>
         </div>
+
         <form className="mt-8 space-y-6" onSubmit={loginSubmitHandler}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
@@ -58,7 +58,7 @@ export default function RecruiterSignIn() {
                 onChange={(event) => {
                   dispatch(userLoginAction.setEmail(event.target.value));
                 }}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="placeholder-gray-500 relative focus:z-10 block px-3 py-2 w-full text-gray-900 text-yellow-500 border border-gray-300 focus:border-indigo-500 rounded-none rounded-t-md focus:outline-none appearance-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -71,7 +71,7 @@ export default function RecruiterSignIn() {
                 onChange={(event) => {
                   dispatch(userLoginAction.setPassword(event.target.value));
                 }}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="placeholder-gray-500 relative focus:z-10 block px-3 py-2 w-full text-gray-900 text-yellow-500 border border-gray-300 focus:border-indigo-500 rounded-b-md rounded-none focus:outline-none appearance-none focus:ring-indigo-500 sm:text-sm"
                 placeholder="Password"
               />
             </div>
@@ -82,11 +82,11 @@ export default function RecruiterSignIn() {
                 id="remember_me"
                 name="remember_me"
                 type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
               />
               <label
                 htmlFor="remember_me"
-                className="ml-2 block text-sm text-gray-900"
+                className="block ml-2 text-gray-900 text-sm"
               >
                 Remember me
               </label>
@@ -95,7 +95,7 @@ export default function RecruiterSignIn() {
             <div className="text-sm">
               <a
                 href="/#"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
+                className="hover:text-indigo-500 text-indigo-600 font-medium"
               >
                 Forgot your password?
               </a>
@@ -107,7 +107,7 @@ export default function RecruiterSignIn() {
               type="submit"
               value={userLoginData.isLoading ? "Loading..." : "Login"}
               disabled={userLoginData.isLoading ? true : false}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative flex justify-center px-4 py-2 w-full text-white text-sm font-medium bg-blue-700 hover:bg-blue-800 border border-transparent rounded-md focus:outline-none focus:ring-blue-500 focus:ring-offset-2 focus:ring-2"
             >
               Sign in
             </button>

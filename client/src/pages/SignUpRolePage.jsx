@@ -1,20 +1,20 @@
 import React from "react";
-import ExchoJobIcon from "../components/ExchoJobIcon";
-import SignUpText from "../components/SignUpText";
 import { Link } from "react-router-dom";
+import ExchoJobIcon from "../components/ExchoJobIcon";
+import SignInText from "../components/SignInText";
 
 const roles = [
   {
     name: "Job Seeker",
-    to: "/signin-jobseeker",
+    to: "/signup-jobseeker",
   },
   {
     name: "Recruiter",
-    to: "/signin-recruiter",
+    to: "/signup-recruiter",
   },
 ];
 
-export default function SignInRolePage() {
+export default function SignUpRolePage() {
   return (
     <div className="flex items-center justify-center px-4 py-12 min-h-screen bg-gray-50 select-none sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -25,7 +25,7 @@ export default function SignInRolePage() {
 
           {/*greeting text*/}
           <h2 className="mb-4 mt-6 text-center text-gray-900 text-3xl font-extrabold">
-            <span className="text-yellow-500">Sign in</span> to your account as
+            <span className="text-yellow-500">Sign up</span> to your account as
           </h2>
           {/*greeting text*/}
 
@@ -44,7 +44,7 @@ export default function SignInRolePage() {
 
           <p className="mt-2 text-center text-gray-600 text-sm">
             Or
-            <SignUpText />
+            <SignInText />
           </p>
         </div>
       </div>
