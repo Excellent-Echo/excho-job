@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 
 const people = [
   {
@@ -18,7 +18,7 @@ const people = [
 export default function RecruiterDashboardPage() {
   return (
     <>
-      <Header />
+      <Navbar />
 
       <header className="bg-white shadow">
         <div className="mx-auto px-4 py-6 max-w-7xl sm:px-6 lg:px-8">
