@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getJobAction } from "../redux/jobs/jobAction";
 import { useHistory } from "react-router-dom";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function MainPage() {
   const dispatch = useDispatch();
@@ -21,19 +22,18 @@ export default function MainPage() {
   }, [dispatch]);
 
   return (
-    <>
-      <Header />
+    <div className="select-none">
+      <Navbar />
 
       <div className="mt-10 mx-auto px-4 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-        <div className="sm:text-center lg:text-left">
+        <div className="text-center">
           <h1 className="text-gray-900 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-            <span className="xl:inline">Get your</span>{" "}
-            <span className="text-indigo-600 xl:inline">dream job</span>
+            <span>Get your</span>{" "}
+            <span className="text-indigo-600">dream job</span>
           </h1>
-          <p className="mt-3 text-gray-500 text-base sm:mt-5 sm:mx-auto sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-            {/*Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui*/}
-            {/*lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat*/}
-            {/*fugiat aliqua.*/}
+          <p className="mt-3 mx-auto text-gray-500 text-base sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl">
+            Displays a list of jobs based on where you are, the type of work
+            time and the category of work in what field.
           </p>
 
           <div className="grid gap-6 grid-cols-12 mb-20 mt-5 sm:mt-8">
@@ -144,7 +144,7 @@ export default function MainPage() {
         </main>
 
         {/*pagination*/}
-        <div className="flex items-center justify-center px-4 py-3 bg-white border-t border-gray-200 sm:px-6">
+        <div className="flex items-center justify-center px-4 py-3 bg-white sm:px-6">
           <div className="sm:flex sm:flex-1 sm:items-center sm:justify-center">
             <div>
               <nav
@@ -235,7 +235,9 @@ export default function MainPage() {
           </div>
         </div>
         {/*pagination*/}
+
+        <Footer />
       </div>
-    </>
+    </div>
   );
 }

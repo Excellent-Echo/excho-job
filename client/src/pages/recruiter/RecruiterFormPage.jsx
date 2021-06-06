@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import formInputAction from "../../redux/formJobs/formJobsAction";
-import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 
 export default function RecruiterFormPage() {
   const formData = useSelector((state) => state.formJob);
@@ -34,10 +34,10 @@ export default function RecruiterFormPage() {
 
   return (
     <div className="select-none">
-      <Header />
+      <Navbar />
       <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Recruiter Form</h1>
+        <div className="mx-auto px-4 py-6 max-w-7xl sm:px-6 lg:px-8">
+          <h1 className="text-gray-900 text-3xl font-bold">Recruiter Form</h1>
         </div>
       </header>
 
@@ -54,28 +54,28 @@ export default function RecruiterFormPage() {
       {/* Success Message */}
       {formData.successMessage && <p>{formData.successMessage}</p>}
 
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto py-6 max-w-7xl sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           {/*post job details*/}
           <div className="mt-10 sm:mt-0">
-            <div className="md:grid md:grid-cols-3 md:gap-6">
+            <div className="md:grid md:gap-6 md:grid-cols-3">
               <div className="md:col-span-1">
                 <div className="px-4 sm:px-0">
-                  <h3 className="text-lg font-medium leading-6 text-gray-900">
+                  <h3 className="text-gray-900 text-lg font-medium leading-6">
                     Post Job Details
                   </h3>
-                  <p className="mt-1 text-sm text-gray-600"></p>
+                  <p className="mt-1 text-gray-600 text-sm"></p>
                 </div>
               </div>
-              <div className="mt-5 md:mt-0 md:col-span-2">
+              <div className="mt-5 md:col-span-2 md:mt-0">
                 <form onSubmit={handleFormSubmit}>
                   <div className="shadow overflow-hidden sm:rounded-md">
                     <div className="px-4 py-5 bg-white sm:p-6">
-                      <div className="grid grid-cols-6 gap-6">
+                      <div className="grid gap-6 grid-cols-6">
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="job-position"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Company Name
                           </label>
@@ -89,13 +89,13 @@ export default function RecruiterFormPage() {
                                 )
                               )
                             }
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="job-position"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Address
                           </label>
@@ -107,13 +107,13 @@ export default function RecruiterFormPage() {
                                 formInputAction.setAddress(event.target.value)
                               )
                             }
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="job-position"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Industry
                           </label>
@@ -125,13 +125,13 @@ export default function RecruiterFormPage() {
                                 formInputAction.setIndustry(event.target.value)
                               )
                             }
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="job-position"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Job Title
                           </label>
@@ -143,14 +143,14 @@ export default function RecruiterFormPage() {
                                 formInputAction.setJobTitle(event.target.value)
                               )
                             }
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="salary"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Salary
                           </label>
@@ -162,14 +162,14 @@ export default function RecruiterFormPage() {
                                 formInputAction.setSalary(event.target.value)
                               )
                             }
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="salary"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Category
                           </label>
@@ -181,14 +181,14 @@ export default function RecruiterFormPage() {
                                 formInputAction.setCategory(event.target.value)
                               )
                             }
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                           />
                         </div>
 
                         <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                           <label
                             htmlFor="job_type"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Type
                           </label>
@@ -199,7 +199,7 @@ export default function RecruiterFormPage() {
                                 formInputAction.setType(event.target.value)
                               )
                             }
-                            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            className="block mt-1 px-3 py-2 w-full bg-white border border-gray-300 focus:border-indigo-500 rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 sm:text-sm"
                           >
                             <option value="Full Time">Full time</option>
                             <option value="Part Time">Part Time</option>
@@ -210,7 +210,7 @@ export default function RecruiterFormPage() {
                         <div className="col-span-6 sm:col-span-6">
                           <label
                             htmlFor="job_description"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Job Description
                           </label>
@@ -226,11 +226,11 @@ export default function RecruiterFormPage() {
                                 )
                               }
                               rows={3}
-                              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                              className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                               placeholder="type here..."
                             />
                           </div>
-                          <p className="mt-2 text-sm text-gray-500">
+                          <p className="mt-2 text-gray-500 text-sm">
                             A brief description of the job being applied for.
                           </p>
                         </div>
@@ -238,7 +238,7 @@ export default function RecruiterFormPage() {
                         <div className="col-span-6 sm:col-span-6">
                           <label
                             htmlFor="job_description"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Location
                           </label>
@@ -254,11 +254,11 @@ export default function RecruiterFormPage() {
                                 )
                               }
                               rows={3}
-                              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                              className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                               placeholder="type here..."
                             />
                           </div>
-                          <p className="mt-2 text-sm text-gray-500">
+                          <p className="mt-2 text-gray-500 text-sm">
                             A brief location of the job being applied for.
                           </p>
                         </div>
@@ -266,7 +266,7 @@ export default function RecruiterFormPage() {
                         <div className="col-span-6 sm:col-span-6">
                           <label
                             htmlFor="requirements"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Requirements
                           </label>
@@ -282,11 +282,11 @@ export default function RecruiterFormPage() {
                                 )
                               }
                               rows={3}
-                              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                              className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                               placeholder="you@example.com"
                             />
                           </div>
-                          <p className="mt-2 text-sm text-gray-500">
+                          <p className="mt-2 text-gray-500 text-sm">
                             A brief description of the requirements for the job
                             being applied for.
                           </p>
@@ -295,7 +295,7 @@ export default function RecruiterFormPage() {
                         <div className="col-span-6 sm:col-span-6">
                           <label
                             htmlFor="about"
-                            className="block text-sm font-medium text-gray-700"
+                            className="block text-gray-700 text-sm font-medium"
                           >
                             Skills
                           </label>
@@ -309,22 +309,22 @@ export default function RecruiterFormPage() {
                                 )
                               }
                               rows={3}
-                              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                              className="block mt-1 w-full border-gray-300 focus:border-indigo-500 rounded-md shadow-sm focus:ring-indigo-500 sm:text-sm"
                               placeholder="you@example.com"
                             />
                           </div>
-                          <p className="mt-2 text-sm text-gray-500">
+                          <p className="mt-2 text-gray-500 text-sm">
                             Brief description for your Skills will much appl for
                           </p>
                         </div>
                       </div>
                     </div>
-                    <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <div className="px-4 py-3 text-right bg-gray-50 sm:px-6">
                       <button
                         type="submit"
                         value={formData.isLoading ? "Loading..." : "Register"}
                         disabled={formData.isLoading ? true : false}
-                        className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="inline-flex justify-center px-4 py-2 text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700 border border-transparent rounded-md focus:outline-none shadow-sm focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2"
                       >
                         Save
                       </button>
