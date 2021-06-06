@@ -31,12 +31,12 @@ export default function App() {
 
           <Route exact path="/signin">
             <SignInRolePage />
-            <Route exact path="/signin-recruiter">
-              <RecruiterSignInPage />
-            </Route>
-            <Route exact path="/signin-jobseeker">
-              <JobSeekerSignInPage />
-            </Route>
+          </Route>
+          <Route exact path="/signin-recruiter">
+            <RecruiterSignInPage />
+          </Route>
+          <Route exact path="/signin-jobseeker">
+            <JobSeekerSignInPage />
           </Route>
 
           <Route exact path="/form-recruiter">
@@ -55,7 +55,6 @@ export default function App() {
           <Route exact path="/job-detail/:id">
             <JobDetail />
           </Route>
-
           <Route exact path="/">
             <MainPage />
           </Route>
